@@ -11,9 +11,25 @@
 <body style="background-color: #6B5F82;">
 </body>
 
+<body>
     <div id="page-capa" class="page active">
         <div class = "container">
             <img src="Logo.png" alt="">
         </div>
-</div>
+        <form method = 'POST' action = '/'>
+            <div class = 'form-grupo'>
+                <label for = 'username'>Nome de usuário</label>
+                <input type = 'text' id ='username' name="username" placeholder="Digite seu nome">
+            </div>
+
+            <div class = 'form-grupo'>
+                <label for = 'senha'>Senha</label>
+                <input type = 'password' id ='senha' name="senha" placeholder="Digite sua senha">
+            </div> 
+        </form>
+        <div>
+            <button class ="btn" type="submit">Acessar</button>
+        </div>
+    </div>
+</body>
 
