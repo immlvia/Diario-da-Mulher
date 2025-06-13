@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIÁRIO-DA-MULHER</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="page-capa" class="page active">
+        <div class="container">
+            <img src="{{ url_for('static', filename='images/Logo.png') }}" alt="Logo">
+        </div>
+        <form method='POST' action='/'>
+            <div class='form-grupo'>
+                <label for='username'>Nome de usuário</label>
+                <input type='text' id='username' name="username" placeholder="Digite seu nome">
+            </div>
+
+            <div class='form-grupo'>
+                <label for='senha'>Senha</label>
+                <input type='password' id='senha' name="senha" placeholder="Digite sua senha">
+            </div>
+
+            <div>
+                <button class="btn" type="submit">Acessar</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="page-diario" class="page">
+        <header class="diario-header">
+            <button class="btn-fechar" id="btn-ir-capa">X</button>
+            <h1>12 de junho de 2025</h1>
+            <button class="btn-calendario">🗓️</button>
+        </header>
+
+        <form id="registroDiarioForm">
+            <section class="secao-registro" id="secao-emocoes">
+                <div class="secao-header">
+                    <h3>Emoções</h3>
+                    <p>Como me senti hoje?</p>
+                </div>
+            </section>
+        </form>
+    </div>
+</body>
+</html>
