@@ -1,9 +1,6 @@
-# (Imports e outras configurações do Flask)
-from flask import Flask, render_template, request, redirect, url_for
-
+from flask import render_template, request, redirect, url_for
 import sqlite3
-
-app = Flask(__name__)
+from app import app
 
 
 def conectar_db():
@@ -21,7 +18,6 @@ def criar_tabela():
                    idade INTEGER)
                    ''')
     
-# rotas 
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -37,6 +33,3 @@ def login():
 @app.route("/")
 def homepage():
     return render_template("index.html")
-
-if __name__ == "__main__":
-    app.run(debug=True)
