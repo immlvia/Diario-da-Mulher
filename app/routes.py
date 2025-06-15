@@ -13,7 +13,7 @@ def criar_tabela():
     cursor = conectar.cursor()
     cursor.execute ('''
                    CREAT TABLE IF NOT EXISTS usuarios (
-                   id INTEGER PRIMARY KEY AUTOINCREMENT,
+                   id INTEGER PRIMARY KEY      AUTOINCREMENT,
                    nome TEXT NOT NULL,
                    idade INTEGER)
                    ''')
@@ -30,6 +30,14 @@ def login():
             return render_template("login.html", erro="Usuário ou senha inválidos.")
     return render_template("login.html")
 
+@app.route("/cadastro/")
+def cadastro():
+    return render_template("cadastro.html")
+
 @app.route("/")
 def homepage():
     return render_template("index.html")
+
+@app.route("/diario/")
+def diario():
+    return render_template("diario.html")
