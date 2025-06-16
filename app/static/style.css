@@ -14,6 +14,7 @@ body{
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
+    display: flex;
 }
 
 header{
@@ -43,16 +44,56 @@ footer{
 .main-login{
     width: 100vw;
     height: 100vh;
-    background-color: #fafafa;
-    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.left-login, .right-login{
+    width: 50vw;
+    height: 100vh;
     justify-content: center;
     align-items: center;
 }
 
-.left-login{
-    width: 50vw;
+.left-login img {
+    max-width: 50%;
+    height: auto;
+}
+
+.right-login .card-login{
+    max-width: 360px;
+    padding: 2.2rem !important;
+}
+
+.card-login h1{
+    font-size: 1.5rem;
+    margin-top: 0.2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.botoes-login{
+    margin-top: 2rem;
+    margin-bottom: 0.3rem; 
+}
+
+/*Formatações cadastro*/
+.main-cadastro{
+    width: 100vw;
     height: 100vh;
-    display: flex;
     justify-content: center;
     align-items: center;
+    gap: 2rem;
+}
+
+.card-cadastro {
+    max-width: 360px;
+}
+
+.card-cadastro h1{
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    text-align: center;
 }

@@ -1,6 +1,9 @@
+from app import app, db
 from flask import render_template, request, redirect, url_for
 import sqlite3
-from app import app
+
+from app.models import Usuario
+from app.forms import UsuarioForm
 
 
 def conectar_db():
@@ -30,14 +33,20 @@ def login():
             return render_template("login.html", erro="Usuário ou senha inválidos.")
     return render_template("login.html")
 
-@app.route("/cadastro/")
+@app.route("/cadastro", methods=["GET", "POST"])
 def cadastro():
-    return render_template("cadastro.html")
+    form = UsuarioForm()
+    context = {}
+    if form.validate_on_submit():
+        form.save()
+        return redirect(url_for('login'))
+    
+    return render_template("cadastro.html", context=context, form=form)
 
 @app.route("/")
 def homepage():
     return render_template("index.html")
 
-@app.route("/diario/")
+@app.route("/diario")
 def diario():
     return render_template("diario.html")
