@@ -73,7 +73,7 @@ footer{
     text-align: center;
 }
 
-.botoes-login{
+.botoes-login{ 
     margin-top: 2rem;
     margin-bottom: 0.3rem; 
 }
@@ -96,4 +96,39 @@ footer{
     margin-bottom: 2rem;
     margin-top: 1rem;
     text-align: center;
+}
+
+/*Formatações ciclo*/
+
+.circular-progress-container {
+    width: 200px;
+    height: 200px;
+    margin: 30px auto; 
+    background-color: #f0f0f0; 
+    border-radius: 50%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; 
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Diâmetro do círculo interno*/
+.circular-progress {
+    width: 180px;
+    height: 180px;
+    background-color: transparent;
+    border-radius: 50%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden; 
+}
+
+.progress-value {
+    font-size: 2.0em; 
+    font-weight: bold; 
+    color: #555;
+    z-index: 1; 
 }
