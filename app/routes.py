@@ -43,6 +43,11 @@ def cadastro():
     
     return render_template("cadastro.html", context=context, form=form)
 
+
+@app.route('/meuperfil')
+def ciclo():
+    return render_template('meuperfil.html')
+
 @app.route("/")
 def homepage():
     return render_template("index.html")
