@@ -45,7 +45,7 @@ def cadastro():
 
 
 @app.route('/meuperfil')
-def ciclo():
+def meuperfil():
     return render_template('meuperfil.html')
 
 @app.route("/")
