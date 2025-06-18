@@ -99,6 +99,41 @@ footer{
 }
 
 /*Formatações ciclo*/
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F8F9FA; 
+    font-family: Arial, sans-serif; 
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+}
+
+.container.ciclo-container {
+    max-width: 1500px;
+    margin: 40px auto;
+    padding: 0; 
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 0; 
+    box-shadow: none; 
+    background-color: transparent; 
+    display: flex;
+    flex-direction: column;
+}
+
+
+.ciclo-header h1 { 
+    font-size: 22px; 
+    font-weight: 600; 
+    color: #333; 
+    margin: 0;
+    text-align: center; 
+}
+
 .circular-progress-container {
     width: 180px;
     height: 180px;
@@ -119,7 +154,46 @@ footer{
     justify-content: center;
     align-items: center;
     box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.1);
+
 }
+/*Cabeçalho ciclo*/
+
+.ciclo-header {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 100%; 
+    padding: 15px 20px; 
+    border-bottom: 1px solid #eee; 
+    margin-bottom: 30px;
+    position: relative; 
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+    box-sizing: border-box; 
+}
+
+.ciclo-header .btn-fechar {
+    position: absolute; 
+    left: 20px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    background: none;
+    border: none;
+    font-size: 1.8em; 
+    color: #000000; 
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    z-index: 10;
+}
+
+
+.ciclo-header .btn-fechar:hover {
+    color: #000000;
+}
+
+
+
 /*Diario*/
 body#page-diario-body {
     background-color: #F8F9FA; /* Um cinza muito, muito claro */
