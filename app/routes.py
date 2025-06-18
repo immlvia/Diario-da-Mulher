@@ -2,7 +2,7 @@ from app import app, db
 from flask import render_template, request, redirect, url_for
 import sqlite3
 
-from app.models import Usuario
+from app.models import Usuario, Diario
 from app.forms import UsuarioForm
 
 
@@ -55,6 +55,56 @@ def homepage():
 @app.route("/diario")
 def diario():
     return render_template("diario.html")
+
+
+@app.route('/salvar-diario', methods=['POST'])
+#@login_required
+def salvar_diario(): #usuario_id=current_user.id (colocar entre os parenteses quando resolver o login)
+    try:
+        # Uma nova entrada no diário
+        nova_entrada = Diario()
+        
+        todos_os_campos = [
+            # Emoções
+            'feliz', 'triste', 'alteracao_humor', 'sensivel', 'raiva', 'irritavel',
+            'ansiosa', 'falta_controle', 'indiferenca',
+            # Mente
+            'mente_confusa', 'calma', 'estresse', 'motivacao', 'criatividade',
+            'bom_rendimento', 'preguica_desanimo', 'coracao_partido',
+            # Sociabilidade
+            'sociavel', 'introvertida', 'compreensiva', 'amorosa', 'conflituosa',
+            # Lazer
+            'ferias', 'encontro', 'ressaca', 'alcool', 'cigarro',
+            # Sintomas Físicos
+            'dor_cabeca','tensao_corporal', 'dor_corporal', 'insonia', 'queda_cabelo', 'taquicardia',
+            'surto_acne', 'sem_apetite', 'alergia_dermatite', 'gripe', 'alteracao_hormonal', 'problemas_digestivos',
+            # Comportamento do Parceiro
+            'piadas_ofensivas', 'chantagem', 'mentira', 'dar_gelo', 'ciumes',
+            'culpar', 'desqualificar', 'humilhar', 'xingamentos', 'ameacar',
+            'proibir', 'destruir_bens', 'apertar', 'brincar_de_bater', 'beliscar',
+            'empurrar', 'bater', 'chutar', 'confinar', 'ameacar_com_objetos',
+            'ameacar_com_armas', 'ameacar_de_morte', 'obrigou_a_ter_relacoes_sexuais',
+            'abuso_sexual', 'sufocar', 'feriu_animal', 'tentou_se_matar'
+        ]
+        
+        for campo in todos_os_campos:
+            if campo in request.form:
+                setattr(nova_entrada, campo, True)
+        
+        # calculo
+        nova_entrada.pontuacao = nova_entrada.calcular_pontuacao()
+        
+        # Salva
+        db.session.add(nova_entrada)
+        db.session.commit()
+        
+        # Redirecionamento pra pagina do diario
+        return redirect(url_for('diario'))
+    
+    except Exception:
+        db.session.rollback()
+        return redirect(url_for('diario'))
+
 
 @app.route('/ciclo')
 def ciclo():

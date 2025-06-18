@@ -23,6 +23,13 @@
             <div class="intro-banner">
                 <img src="{{ url_for('static', filename='imagens/10.png') }}" alt="Ilustração de uma mulher pensativa">
             </div>
+          
+            <!-- Essa linha é necessaria para enviar a informação para o backend, não fechar esse form), quando você
+             achar que o código esta pronto, coloque: 
+
+            <form id="registroDiarioForm" method="POST" action="{{ url_for('salvar_diario') }}">
+
+            -->
 
         <form id="registroDiarioForm">
             <section class="secao-registro" id="secao-emocoes">
@@ -31,39 +38,48 @@
                     <p>Como me senti hoje?</p>
                 </div>
                 <div class="secao-emocoes">
+                    <input type="checkbox" name="feliz" style="display: none;">
                     <button type="button" class="botao-emocao">
                         <img src="{{ url_for('static', filename='imagens/feliz.png') }}" alt="Ícone de Feliz" class="imagem-emocao">
                         <span class="texto-botao">Feliz</span>
                     </button>
                     <button type="button" class="botao-emocao">
+                        <input type="checkbox" name="triste" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/2.png') }}" alt="Ícone de Triste" class="imagem-emocao">
                         <span class="texto-botao">Triste</span>
                     </button>
                     <button type="button" class="botao-emocao texto-longo">
+                        <input type="checkbox" name="alteracao_humor" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/3.png') }}" alt="Ícone de Alteração de humor" class="imagem-emocao">
                         <span class="texto-botao">Alteração de humor</span>
                     </button>
                     <button type="button" class="botao-emocao">
+                        <input type="checkbox" name="sensivel" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/4.png') }}" alt="Ícone de Sensível" class="imagem-emocao">
                         <span class="texto-botao">Sensível</span>
                     </button>
                     <button type="button" class="botao-emocao">
+                        <input type="checkbox" name="raiva" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/5.png') }}" alt="Ícone de Raiva" class="imagem-emocao">
                         <span class="texto-botao">Raiva</span>
                     </button>
                     <button type="button" class="botao-emocao">
+                        <input type="checkbox" name="irritavel" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/6.png') }}" alt="Ícone de Irritável" class="imagem-emocao">
                         <span class="texto-botao">Irritável</span>
                     </button>
                     <button type="button" class="botao-emocao">
+                        <input type="checkbox" name="ansiosa" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/7.png') }}" alt="Ícone de Ansiosa" class="imagem-emocao">
                         <span class="texto-botao">Ansiosa</span>
                     </button>
                     <button type="button" class="botao-emocao texto-longo">
+                        <input type="checkbox" name="falta_controle" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/8.png') }}" alt="Ícone de Falta de controle" class="imagem-emocao">
                         <span class="texto-botao">Falta de controle</span>
                     </button>
                     <button type="button" class="botao-emocao">
+                        <input type="checkbox" name="indiferenca" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/9.png') }}" alt="Ícone de Indiferença" class="imagem-emocao">
                         <span class="texto-botao">Indiferença</span>
                     </button>
@@ -76,30 +92,37 @@
                 </div>
                 <div class="container-botoes">
                     <button type="button" class="botao-card">
+                        <input type="checkbox" name="mente_confusa" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/11.png') }}" alt="Ícone de Mente Confusa" class="imagem-botao">
                         <span>Mente confusa</span>
                     </button>
                     <button type="button" class="botao-card">
+                        <input type="checkbox" name="calma" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/12.png') }}"" alt="Ícone de Calma" class="imagem-botao">
                         <span>Calma</span>
                     </button>
                     <button type="button" class="botao-card">
+                        <input type="checkbox" name="estresse" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/13.png') }}" alt="Ícone de Estresse" class="imagem-botao">
                         <span>Estresse</span>
                     </button>
                     <button type="button" class="botao-card">
+                        <input type="checkbox" name="motivacao" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/14.png') }}" alt="Ícone de Motivação" class="imagem-botao">
                         <span>Motivação</span>
                     </button>
                     <button type="button" class="botao-card">
+                        <input type="checkbox" name="criatividade" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/15.png') }}" alt="Ícone de Criatividade" class="imagem-botao">
                         <span>Criatividade</span>
                     </button>
                     <button type="button" class="botao-card">
+                        <input type="checkbox" name="bom_rendimento" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/16.png') }}" alt="Ícone de Bom Rendimento" class="imagem-botao">
                         <span>Bom rendimento</span>
                     </button>
                     <button type="button" class="botao-card">
+                        <input type="checkbox" name="preguica_ou_desanimo" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/17.png') }}" alt="Ícone de Preguiça ou desânimo" class="imagem-botao">
                         <span>Preguiça ou desânimo</span>
                     </button>
@@ -112,22 +135,27 @@
                 </div>
                 <div class="container-botoes">
                     <button type="button" class="botao-card">
+                        <input type="checkbox" name="sociavel" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/18.png') }}" alt="Ícone de Sociável" class="imagem-botao">
                         <span>Sociável</span>
                     </button>
                     <button type="button" class="botao-card">
+                        <input type="checkbox" name="introvertida" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/19.png') }}" alt="Ícone de Introvertida" class="imagem-botao">
                         <span>Introvertida</span>
                     </button>
                     <button type="button" class="botao-card">
+                        <input type="checkbox" name="compreensiva" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/20.png') }}" alt="Ícone de Compreensiva" class="imagem-botao">
                         <span>Compreensiva</span>
                     </button>
                     <button type="button" class="botao-card">
+                        <input type="checkbox" name="amorosa" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/21.png') }}" alt="Ícone de Amorosa" class="imagem-botao">
                         <span>Amorosa</span>
                     </button>
                     <button type="button" class="botao-card">
+                        <input type="checkbox" name="conflituosa" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/22.png') }}" alt="Ícone de Conflituosa" class="imagem-botao">
                         <span>Conflituosa</span>
                     </button>
@@ -140,22 +168,27 @@
                 </div>
                 <div class="container-botoes">
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="ferias" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/23.png') }}" alt="Ícone de Férias" class="imagem-botao">
                         <span>Férias</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="encontros" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/24.png') }}" alt="Ícone de Encontro" class="imagem-botao">
                         <span>Encontro</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="ressaca" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/25.png') }}" alt="Ícone de Ressaca" class="imagem-botao">
                         <span>Ressaca</span>                        
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="alcool" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/26.png') }}" alt="Ícone de Álcool" class="imagem-botao">
                         <span>Álcool</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="cigarro" style="display: none;">
                         <img src="{{ url_for('static', filename='imagens/27.png') }}" alt="Ícone de Cigarro" class="imagem-botao">
                         <span>Cigarro</span>
                     </button>
@@ -169,50 +202,62 @@
                 </div>
                 <div class="container-botoes">
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="dor_cabeca" style="display: none;">
                         <img src="" alt="Ícone Dor de cabeça" class="imagem-botao">
                         <span>Dor de cabeça</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="surto_de_acne" style="display: none;">
                         <img src="" alt="Ícone Surto de acne" class="imagem-botao">
                         <span>Surto de acne</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="tensao_corporal" style="display: none;">
                         <img src="" alt="Tensão Corporal" class="imagem-botao">
                         <span>Tensão corporal</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="dor_corporal" style="display: none;">
                         <img src="" alt="Ícone Dor muscular/corporal" class="imagem-botao">
                         <span>Dor muscular/corporal</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="alergia_dermatite" style="display: none;">
                         <img src="" alt="Ícone Alergia/demartite" class="imagem-botao">
                         <span>Alergia/demartite</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="gripe" style="display: none;">
                         <img src="" alt="Ícone Gripe/doença" class="imagem-botao">
                         <span>Gripe/doença</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="insonia" style="display: none;">
                         <img src="" alt="Ícone de Insônia" class="imagem-botao">
                         <span>Insônia</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="alteracao_hormonal" style="display: none;">
                         <img src="" alt="Ícone de Alterações Hormonais" class="imagem-botao">
                         <span>Alterações Hormonais</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="problemas_digestivos" style="display: none;">
                         <img src="" alt="Ícone Problema digestivo" class="imagem-botao">
                         <span>Problema digestivo</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="sem_apetite" style="display: none;">
                         <img src="" alt="Ícone Sem apetite" class="imagem-botao">
                         <span>Sem apetite</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="queda_cabelo" style="display: none;">
                         <img src="" alt="Ícone Queda de cabelo" class="imagem-botao">
                         <span>Queda de cabelo</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="taquicardia" style="display: none;">
                         <img src="" alt="Ícone de Taquicardia" class="imagem-botao">
                         <span>Taquicardia</span>
                     </button>
@@ -229,42 +274,52 @@
                 </div>
                 <div class="container-botoes">
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="palavras_carinho" style="display: none;">
                         <img src="" alt="Ícone de Palavras carinhosas" class="imagem-botao">
                         <span>Palavras carinhosas</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="presente" style="display: none;">
                         <img src="" alt="Ícone de Presentes" class="imagem-botao">
                         <span>Presentes</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="xingamentos" style="display: none;">
                         <img src="" alt="Ícone de Xingamentos" class="imagem-botao">
                         <span>Xingamentos</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="piadas_ofensivas" style="display: none;">
                         <img src="" alt="Ícone de Piadas Ofensivas" class="imagem-botao">
                         <span>Piadas Ofensivas</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="mentira" style="display: none;">
                         <img src="" alt="Ícone de Mentiras" class="imagem-botao">
                         <span>Mentiras</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="dar_gelo" style="display: none;">
                         <img src="" alt="Ícone de Dar um Gelo" class="imagem-botao">
                         <span>Dar um Gelo</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="ciumes" style="display: none;">
                         <img src="" alt="Ícone de Ciúmes" class="imagem-botao">
                         <span>Ciumar/Ciúmes</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="culpar" style="display: none;">
                         <img src="" alt="Ícone de Culpar" class="imagem-botao">
                         <span>Culpar</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="proibir" style="display: none;">
                         <img src="" alt="Ícone de Proibir" class="imagem-botao">
                         <span>Proibir</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="chantagem" style="display: none;">
                         <img src="" alt="Ícone de Chantagear" class="imagem-botao">
                         <span>Chantagear</span>
                     </button>
@@ -279,46 +334,57 @@
                 </div>
                 <div class="container-botoes">
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="empurrar" style="display: none;">
                         <img src="" alt="Ícone de Empurrar" class="imagem-botao">
                         <span>Empurrar</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="beliscar" style="display: none;">
                         <img src="" alt="Ícone de Beliscar/Arranhar" class="imagem-botao">
                         <span>Beliscar/Arranhar</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="chutar" style="display: none;">
                         <img src="" alt="Ícone de Chutar" class="imagem-botao">
                         <span>Chutar</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="apertar" style="display: none;">
                         <img src="" alt="Ícone de Apertar" class="imagem-botao">
                         <span>Apertar</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="bater" style="display: none;">
                         <img src="" alt="Ícone de Bater" class="imagem-botao">
                         <span>Bater</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="destruir_bens" style="display: none;">
                         <img src="" alt="Ícone de Destruir Bens" class="imagem-botao">
                         <span>Destruir Bens</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="brincar_de_bater" style="display: none;">
                         <img src="" alt="Ícone de Brincar de Bater" class="imagem-botao">
                         <span>Brincar de Bater</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="obrigou_a_ter_relacoes_sexuais" style="display: none;">
                         <img src="" alt="Ícone de Obrigou a ter relações" class="imagem-botao">
                         <span>Obrigou a ter relações</span>
                         </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="abuso_sexual" style="display: none;">
                         <img src="" alt="Ícone de Abuso Sexual" class="imagem-botao">
                         <span>Abuso Sexual</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="confinar" style="display: none;">
                         <img src="" alt="Ícone de Confinar/Prender" class="imagem-botao">
                         <span>Confinar/Prender</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="sufocar" style="display: none;">
                         <img src="" alt="Ícone de Sufocar/Estrangular" class="imagem-botao">
                         <span>Sufocar/Estrangular</span>
                     </button>
@@ -331,34 +397,42 @@
                 </div>
                 <div class="container-botoes">
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="feriu_animal" style="display: none;">
                         <img src="" alt="Ícone de Matou/Feriu animal" class="imagem-botao">
                         <span>Matou/Feriu animal</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="tentou_se_matar" style="display: none;">
                         <img src="" alt="Ícone de Tentou se matar" class="imagem-botao">
                         <span>Tentou se matar</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="empurrar" style="display: none;">
                         <img src="" alt="Ícone de Empurrar" class="imagem-botao">
                         <span>Empurrar</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="beliscar" style="display: none;">
                         <img src="" alt="Ícone de Beliscar/Arranhar" class="imagem-botao">
                         <span>Beliscar/Arranhar</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="chutar" style="display: none;">
                         <img src="" alt="Ícone de Chutar" class="imagem-botao">
                         <span>Chutar</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="bater" style="display: none;">
                         <img src="" alt="Ícone de Bater" class="imagem-botao">
                         <span>Bater</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="amecar" style="display: none;">
                         <img src="" alt="Ícone de Ameaçar" class="imagem-botao">
                         <span>Ameaçar</span>
                     </button>
                     <button type="button" class="botao-selecao">
+                        <input type="checkbox" name="apertar" style="display: none;">
                         <img src="" alt="Ícone de Apertar" class="imagem-botao">
                         <span>Apertar</span>
                     </button> 
@@ -376,3 +450,16 @@
 </body>
 
 </html>
+
+<!-- Quando você terminar, por favor, coloca esse código:
+
+    <div class="text-center mt-4">
+        <button type="submit">Salvar</button>
+    </div>
+</form>
+
+Ele vai mandar as informações pro /Salvar-Diario (no route.py)
+
+obs: acho que você esqueceu o botão "coração partido"
+
+--> 
