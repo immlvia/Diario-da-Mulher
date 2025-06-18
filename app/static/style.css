@@ -127,7 +127,7 @@ body#page-diario-body {
 
 /* Container principal para centrar o conteúdo */
 #page-diario {
-    max-width: 1100px;
+    max-width: 1500px;
     margin: 40px auto; /* Adiciona margem no topo/baixo e centra horizontalmente */
     padding: 20px;
 }
@@ -158,22 +158,6 @@ body#page-diario-body {
     color: #555;
 }
 
-.intro-banner img {
-    width: 100%;
-    display: flex;
-    justify-content: center; /* centraliza horizontalmente */
-    position: relative;
-    height: 0;
-    margin-bottom: 0;
-}
-
-.imagem-emocoes-flutuante {
-    width: 130px;
-    height: auto;
-    position: absolute;
-    top: -70px; 
-}
-
 /* --- Estilos das Secções de Registro --- */
 .secao-registro {
     background-color: #ffffff;
@@ -190,11 +174,10 @@ body#page-diario-body {
 }
 
 .secao-header img {
-    width: 32px;
-    height: 32px;
-    margin-right: 12px;
+    width: 400px;
+    height: 300px;
+    margin-right: 0px;
 }
-
 .secao-header h2, .secao-header h3 {
     font-size: 20px;
     font-weight: 600;
@@ -210,7 +193,6 @@ body#page-diario-body {
 
 
 /* --- Estilo dos Botões de Seleção --- */
-/* Este estilo aplica-se a todas as variações de botão do seu HTML */
 .botao-emocao,
 .botao-card,
 .botao-selecao {
@@ -254,17 +236,14 @@ body#page-diario-body {
     line-height: 1.3;
 }
 
-/* Seletor para garantir o layout horizontal dos botões */
 .secao-header + div {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 18px; /* Espaço entre os botões */
+    gap: 18px; 
 }
 
 
-/* --- Cores Específicas por Secção --- */
-/* As cores dependem do ID da secção no seu HTML */
 #secao-emocoes .botao-emocao { border-color: #F8D36E; }
 #secao-mente .botao-card { border-color: #F4A8C6; }
 #secao-sociabilidade .botao-card { border-color: #FAD9A1; }
