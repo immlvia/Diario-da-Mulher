@@ -128,7 +128,40 @@ body#page-diario-body {
 /* Container principal para centrar o conteúdo */
 #page-diario {
     max-width: 1500px;
-    margin: 40px auto; /* Adiciona margem no topo/baixo e centra horizontalmente */
+    margin: 40px auto; 
+    padding: 20px;
+}
+
+/* Cabeçalho do Diário */
+.diario-header {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+.diario-header h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    text-align: center;
+}
+
+.btn-fechar, .btn-calendario {
+    background: none;
+    border: none;
+    font-size: 28px; 
+    cursor: pointer;
+    color: #555;
+}
+
+/* --- Estilos das Secções de Registro --- */
+.page-diario {
+    max-width: 1300px;
+    margin: 40px auto;
     padding: 20px;
 }
 
@@ -165,6 +198,8 @@ body#page-diario-body {
     padding: 25px;
     margin-bottom: 30px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: relative;
+    margin-top: 140px;  
 }
 
 .secao-header {
@@ -174,10 +209,13 @@ body#page-diario-body {
 }
 
 .secao-header img {
-    width: 400px;
-    height: 300px;
-    margin-right: 0px;
+    width: 250px;  
+    height: auto;  
+    position: absolute; 
+    top: -147px;        
+    left: 0px;        
 }
+
 .secao-header h2, .secao-header h3 {
     font-size: 20px;
     font-weight: 600;
