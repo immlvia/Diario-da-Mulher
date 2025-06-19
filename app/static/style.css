@@ -100,96 +100,150 @@ footer{
 
 /*Formatações ciclo*/
 
+/* Reset básico */
 body {
     margin: 0;
     padding: 0;
-    background-color: #F8F9FA; 
-    font-family: Arial, sans-serif; 
+    background-color: #f4f6fa;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
     color: #333;
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start; 
+    align-items: flex-start;
 }
 
+/* Container principal */
 .container.ciclo-container {
-    max-width: 1500px;
+    max-width: 1000px;
     margin: 40px auto;
-    padding: 0; 
+    padding: 0 20px;
     width: 100%;
     box-sizing: border-box;
-    border-radius: 0; 
-    box-shadow: none; 
-    background-color: transparent; 
     display: flex;
     flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
-
-.ciclo-header h1 { 
-    font-size: 22px; 
-    font-weight: 600; 
-    color: #333; 
-    margin: 0;
-    text-align: center; 
-}
-
-.circular-progress-container {
-    width: 180px;
-    height: 180px;
+/* Cabeçalho */
+.ciclo-header {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    position: relative;
+    background: linear-gradient(to right, #ffffff, #ede7f6);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.ciclo-header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #4a148c;
+    margin: 0;
+    text-align: center;
+}
+
+.ciclo-header .btn-fechar {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    color: #4a148c;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    z-index: 10;
+    transition: color 0.3s ease;
+}
+
+.ciclo-header .btn-fechar:hover,
+.ciclo-header .btn-fechar:focus {
+    color: #6a1b9a;
+    outline: none;
+}
+
+/* Indicador de violência */
+.indicador-violencia {
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 1.1rem;
+}
+
+/* Círculo de progresso */
+.circular-progress-container {
+    width: 200px;
+    height: 200px;
     margin: 2rem auto;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .circular-progress {
     width: 100%;
     height: 100%;
-    border-radius: 100%;
-    background: radial-gradient(circle at center, #f5f0f8 60%, transparent 60%),
-                conic-gradient(#d3c1e5 0%, #d3c1e5 100%);
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #ffffff 60%, transparent 60%),
+                conic-gradient(#7e57c2 0%, #d1c4e9 100%);
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.1);
-
-}
-/*Cabeçalho ciclo*/
-
-.ciclo-header {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    width: 100%; 
-    padding: 15px 20px; 
-    border-bottom: 1px solid #eee; 
-    margin-bottom: 30px;
-    position: relative; 
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
-    box-sizing: border-box; 
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.08);
+    position: relative;
 }
 
-.ciclo-header .btn-fechar {
-    position: absolute; 
-    left: 20px; 
-    top: 50%; 
-    transform: translateY(-50%); 
-    background: none;
-    border: none;
-    font-size: 1.8em; 
-    color: #000000; 
-    cursor: pointer;
-    padding: 0;
-    line-height: 1;
-    z-index: 10;
+.circular-progress .progress-value {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #4a148c;
+    position: absolute;
 }
 
+/* Situação */
+#situacaoText {
+    font-weight: 500;
+    color: #555;
+    margin-top: 1.5rem;
+      margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #5a5a5a;
+    background-color: #f8f6fc;
+    padding: 10px 15px;
+    border-left: 4px solid #6b4faa;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
 
-.ciclo-header .btn-fechar:hover {
-    color: #000000;
+/* Responsivo */
+@media (max-width: 600px) {
+    .circular-progress-container {
+        width: 140px;
+        height: 140px;
+    }
+
+    .ciclo-header h1 {
+        font-size: 20px;
+    }
+
+    .circular-progress .progress-value {
+        font-size: 1.2rem;
+    }
+
+    .ciclo-header .btn-fechar {
+        font-size: 1.5em;
+    }
 }
 
 
