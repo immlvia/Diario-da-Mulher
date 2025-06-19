@@ -56,6 +56,7 @@ def homepage():
 def diario():
     return render_template("diario.html")
 
+
 @app.route('/ciclo')
 def ciclo():
     return render_template('ciclo.html')
