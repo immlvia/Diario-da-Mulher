@@ -13,13 +13,30 @@
 </head>
 
 <body>
-    <header></header>
+    <header class="">
+        <nav class="navbar">
+            <div class="container header-index d-flex justify-content-between align-items-center">
+                <a class="navbar-brand" href="{{ url_for('homepage') }}">
+                    <img src="{{ url_for('static', filename='imagens/logo.png')}}"
+                        class="logotipo d-inline-block align-text-center" alt="Logo" height="75">
+                </a>
+                <ul class="nav">
+                    <li class="nav-item ">
+                        <a class="nav-link link-meuperfil" href="{{ url_for('meuperfil') }}">Meu perfil</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
     <main>
-        { % block content % } { % enblock % }
+        {% block content %}
+        {% endblock %}
     </main>
 
-    <footer></footer>
+    <footer>
+        <a href="{{ url_for('homepage') }}" class="btn btn-outline-secondary footer-btn">Voltar</a>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
