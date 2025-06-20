@@ -10,17 +10,25 @@
 body{
     background-color: #fafafa;
     color: #333333;
-    font-family: "Quicksand", sans-serif;font-family: "Quicksand", sans-serif;
+    font-family: "Quicksand", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 300;
+    font-weight: 500;
     font-style: normal;
     display: flex;
+    width: 100%;
+    overflow-x: hidden;
+    justify-content: center;
+    align-items: flex-start; 
 }
 
-header{
-    padding: 2rem;
-    background-color: white;
-    text-align: center;
+header {
+    background-color: #9188AE;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 7rem;
+    box-shadow: 1px 1px 5px #616161;
+    z-index: 999;
 }
 
 main{
@@ -28,6 +36,8 @@ main{
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    width: 100%;
+    margin-top: 5rem;
 }
 
 section{
@@ -37,17 +47,62 @@ section{
 }
 
 footer{
-    background-color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 0;
+  background-color: #ffffff;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+
+}
+
+h1{ 
+    font-size: 28px; 
+    font-weight: 600;  
+    margin: 0;
+}
+
+h2{ 
+    font-size: 20px; 
+    margin: 0;
+}
+
+.btn {
+  border-radius: 18px;
+}
+
+/*Formataçõe footer*/
+
+.footer-btn {
+  padding: 0.6rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 500;
+}
+
+.footer-btn:hover {
+    background-color: #6a5f82;
+}
+
+.footer-btn:active {
+    background-color: #524a5c !important;
+    color: white;
 }
 
 /*Formatações login*/
+
 .main-login{
+    display: flex;
+    flex-direction: row;
     width: 100vw;
     height: 100vh;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
 }
+
 
 .left-login, .right-login{
     width: 50vw;
@@ -56,14 +111,31 @@ footer{
     align-items: center;
 }
 
-.left-login img {
-    max-width: 50%;
-    height: auto;
+.login-img {
+    max-width: 70rem !important;
+    min-width: 2rem;
+    padding: 2rem;
 }
 
 .right-login .card-login{
     max-width: 360px;
+    min-width: 360px!important;
     padding: 2.2rem !important;
+}
+
+@media (max-width: 768px) {
+    .login-img {
+        max-width: 100% !important;
+        padding: 1rem;
+        margin-top: 2rem !important;
+    }
+
+    .right-login .card-login {
+        border-top: 0 !important;
+        margin-top:0 !important;
+        min-width: auto; /* deixa o card se adaptar */
+        width: 90%;
+    }
 }
 
 .card-login h1{
@@ -75,7 +147,29 @@ footer{
 
 .botoes-login{ 
     margin-top: 2rem;
-    margin-bottom: 0.3rem; 
+    margin-bottom: 0.1rem;
+    
+}
+
+.entrar-btn, .enviar-btn{
+    background-color: #9188AE;
+    border-color: #9188AE;
+}
+
+.entrar-btn:hover, .cadastro-btn:hover, .enviar-btn:hover {
+    background-color: #6a5f82;
+    border-color: #6a5f82;
+}
+
+.entrar-btn:active, .cadastro-btn:active, .enviar-btn:active{
+    background-color: #524a5c !important;
+    border-color: #524a5c !important;
+}
+
+.form-control:focus {
+  border-color: #9188AE;
+  box-shadow: 0 0 0 0.25rem rgba(145, 136, 174, 0.4);
+  outline: none;
 }
 
 /*Formatações cadastro*/
@@ -89,6 +183,7 @@ footer{
 
 .card-cadastro {
     max-width: 360px;
+    min-width: 300px!important;
 }
 
 .card-cadastro h1{
@@ -98,20 +193,72 @@ footer{
     text-align: center;
 }
 
-/*Formatações ciclo*/
+/*Formatação homepage*/
+.index-img {
+    height: auto;
+    max-width: 25rem;
+    min-width: 15rem;
+    padding: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.link-meuperfil {
+    color: white;
+}
+
+.link-meuperfil:hover {
+    color: #6a5f82;
+}
+
+.link-meuperfil:after{
+    color: #524a5c;
+}
+
+.botao-diario {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 18px;
+    padding: 10px 0.5px;
+    width: 9rem;
+    height: 10rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    text-align: center;
+
+}
+
+.botao-diario:hover {
+    background-color: #6a5f82;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.07);
+}
+
+.botao-diario:active {
+    background-color: #524a5c !important;
+    transform: scale(0.97);
+    color: white;
+    transform: scale(0.96);
+}
+
+/*Formatações ciclo
 
 /* Reset básico */
+/*
 body {
     margin: 0;
     padding: 0;
-    background-color: #f4f6fa;
-    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
     color: #333;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
+    */
 
 /* Container principal */
 .container.ciclo-container {
@@ -128,7 +275,18 @@ body {
 }
 
 /* Cabeçalho */
-.ciclo-header {
+/*
+.ciclo-header h1 { 
+    font-size: 22px; 
+    font-weight: 600; 
+    color: #333; 
+    margin: 0;
+    text-align: center; 
+}
+*/
+.circular-progress-container {
+    width: 180px;
+    height: 180px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -207,6 +365,42 @@ body {
     font-weight: 600;
     color: #4a148c;
     position: absolute;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.1);
+
+}
+
+/*Cabeçalho ciclo*/
+/*
+usar no footer
+*/
+.ciclo-header {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 100%; 
+    padding: 15px 20px; 
+    border-bottom: 1px solid #eee; 
+    margin-bottom: 30px;
+    position: relative; 
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+    box-sizing: border-box; 
+}
+
+
+.ciclo-header .btn-fechar {
+    position: absolute; 
+    left: 20px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    background: none;
+    border: none;
+    font-size: 1.8em; 
+    color: #000000; 
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    z-index: 10;
 }
 
 /* Situação */
@@ -245,7 +439,9 @@ body {
         font-size: 1.5em;
     }
 }
-
+/*
+usar no footer
+*/
 
 
 /*Diario*/

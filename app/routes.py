@@ -60,3 +60,7 @@ def diario():
 @app.route('/ciclo')
 def ciclo():
     return render_template('ciclo.html')
+
+@app.route('/calendario')
+def calendario():
+    return render_template('calendario.html')
