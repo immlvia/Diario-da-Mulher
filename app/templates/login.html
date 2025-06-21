@@ -24,20 +24,22 @@
             <form class="card-login p-4 rounded shadow" method="POST" action="/login">
                 <h1 class="mb-4">Faça login no Diário da Mulher</h2>
 
+                    {{ form.csrf_token }}
+
                     <div class="mb-3">
-                        <label for="usuario" class="form-label">Usuário</label>
-                        <input type="text" name="usuario" id="usuario" class="form-control"
-                            placeholder="Digite seu usuário" required>
+                        <label for="email" class="form-label">Email</label>
+                        {{ form.email(class="form-control", id="email", placeholder="Digite seu e-mail") }}
                     </div>
 
                     <div class="mb-3">
                         <label for="senha" class="form-label">Senha</label>
-                        <input type="password" name="senha" id="senha" class="form-control"
-                            placeholder="Digite sua senha" required>
+                        {{ form.senha(class="form-control", id="senha", placeholder="Digite sua senha") }}
                     </div>
 
                     <div class="botoes-login d-grid gap-2">
-                        <button type="submit" class="btn btn-primary entrar-btn">Entrar</button>
+                        <div class="gp-2 d-grid">
+                            {{ form.btnSubmit(class="btn entrar-btn btn-primary") }}
+                        </div>
                         <a href="/cadastro" class="btn cadastro-btn btn-outline-secondary">Não tenho conta</a>
                     </div>
             </form>

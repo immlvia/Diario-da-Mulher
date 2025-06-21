@@ -5,19 +5,6 @@
     <div class="row mt-4 col-12">
         <h1>Meu perfil</h1>
         <table class="table">
-            <thead>
-                <tr>Nome</tr>
-                <tr>Email</tr>
-                <tr>Senha</tr>
-            </thead>
-
-            <thead>                
-                {% for linha in context['dados'] %}
-                <tr>{% linha['dados'][0].nome %}</tr>
-                <tr>{% linha['dados'][0].email %}</tr>
-                <tr>{% linha['dados'][0].senha %}</tr>
-                {% endfor %}
-            </thead>
         </table>
     </div>
 </div>

@@ -3,7 +3,8 @@ from flask import render_template, request, redirect, url_for
 import sqlite3
 
 from app.models import Usuario
-from app.forms import UsuarioForm
+from app.forms import UsuarioForm, LoginForm
+from flask_login import login_user, logout_user, current_user
 
 
 def conectar_db():
@@ -20,37 +21,47 @@ def criar_tabela():
                    nome TEXT NOT NULL,
                    idade INTEGER)
                    ''')
-    
-@app.route("/login", methods=["GET", "POST"])
-def login():
-    if request.method == "POST":
-        usuario = request.form.get("usuario")
-        senha = request.form.get("senha")
-        # lógica de autenticação
-        if usuario == "admin" and senha == "1234":
-            return redirect(url_for("homepage"))
-        else:
-            return render_template("login.html", erro="Usuário ou senha inválidos.")
-    return render_template("login.html")
 
 @app.route("/cadastro", methods=["GET", "POST"])
 def cadastro():
     form = UsuarioForm()
     context = {}
     if form.validate_on_submit():
-        form.save()
+        usuario = form.save()
+        login_user(usuario, remember=True)
         return redirect(url_for('login'))
     
     return render_template("cadastro.html", context=context, form=form)
 
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        usuario = form.login()
+        login_user(usuario, remember=True)
+        return redirect(url_for('homepage'))
+    
+    return render_template("login.html", form=form)
+
+@app.route("/sair")
+def logout():
+    logout_user()
+    form = LoginForm()
+    return render_template("login.html", form=form)
+
+@app.route("/")
+def homepage():
+    print(current_user.is_authenticated)
+    return render_template("index.html")
 
 @app.route('/meuperfil')
 def meuperfil():
     return render_template('meuperfil.html')
 
-@app.route("/")
-def homepage():
-    return render_template("index.html")
+#@app.route("/<int:id>")
+#def meuperfil(id):
+#    obj = Usuario.query.get(id)
+#    return render_template("meuperfil.html", obj=obj)
 
 @app.route("/diario")
 def diario():
