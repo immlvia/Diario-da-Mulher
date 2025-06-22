@@ -12,54 +12,54 @@
         <img src="{{ url_for('static', filename='imagens/10.png') }}" alt="Ilustração de uma mulher pensativa">
     </div>
 
-    <form id="registroDiarioForm">
+    <form id="registroDiarioForm" method="POST" action="/submit_diario">
         <section class="secao-registro" id="secao-emocoes">
             <div class="secao-header">
                 <h3>Emoções</h3>
                 <p>Como me senti hoje?</p>
             </div>
             <div class="secao-emocoes">
-                <input type="checkbox" class="botao-emocao">
+                <input name="emocoes" type="checkbox" class="botao-emocao">
                     <img src="{{ url_for('static', filename='imagens/feliz.png') }}" alt="Ícone de Feliz"
                         class="imagem-emocao">
                     <span class="texto-botao">Feliz</span>
                 </input>
-                <input type="checkbox" class="botao-emocao">
+                <input name="emocoes" type="checkbox" class="botao-emocao">
                     <img src="{{ url_for('static', filename='imagens/2.png') }}" alt="Ícone de Triste"
                         class="imagem-emocao">
                     <span class="texto-botao">Triste</span>
                 </input>
-                <input type="checkbox" class="botao-emocao texto-longo">
+                <input name="emocoes" type="checkbox" class="botao-emocao">
                     <img src="{{ url_for('static', filename='imagens/3.png') }}" alt="Ícone de Alteração de humor"
                         class="imagem-emocao">
                     <span class="texto-botao">Alteração de humor</span>
                 </input>
-                <input type="checkbox" class="botao-emocao">
+                <input name="emocoes" type="checkbox" class="botao-emocao">
                     <img src="{{ url_for('static', filename='imagens/4.png') }}" alt="Ícone de Sensível"
                         class="imagem-emocao">
                     <span class="texto-botao">Sensível</span>
                 </input>
-                <input type="checkbox" class="botao-emocao">
+                <input name="emocoes" type="checkbox" class="botao-emocao">
                     <img src="{{ url_for('static', filename='imagens/5.png') }}" alt="Ícone de Raiva"
                         class="imagem-emocao">
                     <span class="texto-botao">Raiva</span>
                 </input>
-                <input type="checkbox" class="botao-emocao">
+                <input name="emocoes" type="checkbox" class="botao-emocao">
                     <img src="{{ url_for('static', filename='imagens/6.png') }}" alt="Ícone de Irritável"
                         class="imagem-emocao">
                     <span class="texto-botao">Irritável</span>
                 </input>
-                <input type="checkbox" class="botao-emocao">
+                <input name="emocoes" type="checkbox" class="botao-emocao">
                     <img src="{{ url_for('static', filename='imagens/7.png') }}" alt="Ícone de Ansiosa"
                         class="imagem-emocao">
                     <span class="texto-botao">Ansiosa</span>
                 </input>
-                <input type="checkbox" class="botao-emocao texto-longo">
+                <input name="emocoes" type="checkbox" class="botao-emocao">
                     <img src="{{ url_for('static', filename='imagens/8.png') }}" alt="Ícone de Falta de controle"
                         class="imagem-emocao">
                     <span class="texto-botao">Falta de controle</span>
                 </input>
-                <input type="checkbox" class="botao-emocao">
+                <input name="emocoes" type="checkbox" class="botao-emocao">
                     <img src="{{ url_for('static', filename='imagens/9.png') }}" alt="Ícone de Indiferença"
                         class="imagem-emocao">
                     <span class="texto-botao">Indiferença</span>
@@ -72,41 +72,41 @@
                 <p>Como minha mente estava hoje?</p>
             </div>
             <div class="container-botoes">
-                <button type="button" class="botao-card">
+                <input name="mente" type="checkbox" class="botao-card">
                     <img src="{{ url_for('static', filename='imagens/11.png') }}" alt="Ícone de Mente Confusa"
                         class="imagem-botao">
                     <span>Mente confusa</span>
-                </button>
-                <button type="button" class="botao-card">
+                </input>
+                <input name="mente" type="checkbox" class="botao-card">
                     <img src="{{ url_for('static', filename='imagens/12.png') }}"" alt=" Ícone de Calma"
                         class="imagem-botao">
                     <span>Calma</span>
-                </button>
-                <button type="button" class="botao-card">
+                </input>
+                <input name="mente" type="checkbox" class="botao-card">
                     <img src="{{ url_for('static', filename='imagens/13.png') }}" alt="Ícone de Estresse"
                         class="imagem-botao">
                     <span>Estresse</span>
-                </button>
-                <button type="button" class="botao-card">
+                </input>
+                <input name="mente" type="checkbox" class="botao-card">
                     <img src="{{ url_for('static', filename='imagens/14.png') }}" alt="Ícone de Motivação"
                         class="imagem-botao">
                     <span>Motivação</span>
-                </button>
-                <button type="button" class="botao-card">
+                </input>
+                <input name="mente" type="checkbox" class="botao-card">
                     <img src="{{ url_for('static', filename='imagens/15.png') }}" alt="Ícone de Criatividade"
                         class="imagem-botao">
                     <span>Criatividade</span>
-                </button>
-                <button type="button" class="botao-card">
+                </input>
+                <input name="mente" type="checkbox" class="botao-card">
                     <img src="{{ url_for('static', filename='imagens/16.png') }}" alt="Ícone de Bom Rendimento"
                         class="imagem-botao">
                     <span>Bom rendimento</span>
-                </button>
-                <button type="button" class="botao-card">
+                </input>
+                <input name="mente" type="checkbox" class="botao-card">
                     <img src="{{ url_for('static', filename='imagens/17.png') }}" alt="Ícone de Preguiça ou desânimo"
                         class="imagem-botao">
                     <span>Preguiça ou desânimo</span>
-                </button>
+                </input>
             </div>
         </section>
         <section class="secao-registro">
@@ -115,31 +115,31 @@
                 <p>Como eu agi hoje?</p>
             </div>
             <div class="container-botoes">
-                <button type="button" class="botao-card">
+                <input name="Sociabilidade" type="checkbox" class="botao-card">
                     <img src="{{ url_for('static', filename='imagens/18.png') }}" alt="Ícone de Sociável"
                         class="imagem-botao">
                     <span>Sociável</span>
-                </button>
-                <button type="button" class="botao-card">
+                </input>
+                <input name="Sociabilidade" type="checkbox" class="botao-card">
                     <img src="{{ url_for('static', filename='imagens/19.png') }}" alt="Ícone de Introvertida"
                         class="imagem-botao">
                     <span>Introvertida</span>
-                </button>
-                <button type="button" class="botao-card">
+                </input>
+                <input name="Sociabilidade" type="checkbox" class="botao-card">
                     <img src="{{ url_for('static', filename='imagens/20.png') }}" alt="Ícone de Compreensiva"
                         class="imagem-botao">
                     <span>Compreensiva</span>
-                </button>
-                <button type="button" class="botao-card">
+                </input>
+                <input name="Sociabilidade" type="checkbox" class="botao-card">
                     <img src="{{ url_for('static', filename='imagens/21.png') }}" alt="Ícone de Amorosa"
                         class="imagem-botao">
                     <span>Amorosa</span>
-                </button>
-                <button type="button" class="botao-card">
+                </input>
+                <input name="Sociabilidade" type="checkbox" class="botao-card">
                     <img src="{{ url_for('static', filename='imagens/22.png') }}" alt="Ícone de Conflituosa"
                         class="imagem-botao">
                     <span>Conflituosa</span>
-                </button>
+                </input>
             </div>
         </section>
         <section class="secao-registro">
@@ -148,31 +148,31 @@
                 <p>Fiz algo de lazer hoje?</p>
             </div>
             <div class="container-botoes">
-                <button type="button" class="botao-selecao">
+                <input name="Lazer"type="checkbox" class="botao-selecao">
                     <img src="{{ url_for('static', filename='imagens/23.png') }}" alt="Ícone de Férias"
                         class="imagem-botao">
                     <span>Férias</span>
-                </button>
-                <button type="button" class="botao-selecao">
+                </input>
+                <input name="Lazer"type="checkbox" class="botao-selecao">
                     <img src="{{ url_for('static', filename='imagens/24.png') }}" alt="Ícone de Encontro"
                         class="imagem-botao">
                     <span>Encontro</span>
-                </button>
-                <button type="button" class="botao-selecao">
+                </input>
+                <input name="Lazer"type="checkbox" class="botao-selecao">
                     <img src="{{ url_for('static', filename='imagens/25.png') }}" alt="Ícone de Ressaca"
                         class="imagem-botao">
                     <span>Ressaca</span>
-                </button>
-                <button type="button" class="botao-selecao">
+                </input>
+                <input name="Lazer"type="checkbox" class="botao-selecao">
                     <img src="{{ url_for('static', filename='imagens/26.png') }}" alt="Ícone de Álcool"
                         class="imagem-botao">
                     <span>Álcool</span>
-                </button>
-                <button type="button" class="botao-selecao">
+                </input>
+                <input name="Lazer"type="checkbox" class="botao-selecao">
                     <img src="{{ url_for('static', filename='imagens/27.png') }}" alt="Ícone de Cigarro"
                         class="imagem-botao">
                     <span>Cigarro</span>
-                </button>
+                </input>
             </div>
         </section>
 
@@ -182,66 +182,66 @@
                 <p>Senti algum sintoma físico hoje?</p>
             </div>
             <div class="container-botoes">
-                <button type="button" class="botao-selecao">
+                <input name="Sintomas Físicos" type="checkbox" class="botao-selecao">
                     <img src="{{ url_for('static', filename='imagens/29.png') }}" alt="Ícone Dor de cabeça"
                         class="imagem-botao">
                     <span>Dor de cabeça</span>
-                </button>
-                <button type="button" class="botao-selecao">
+                </input>
+                <input name="Sintomas Físicos" type="checkbox" class="botao-selecao">
                     <img src="{{ url_for('static', filename='imagens/30.png') }}" alt="Ícone Surto de acne"
                         class="imagem-botao">
                     <span>Surto de acne</span>
-                </button>
-                <button type="button" class="botao-selecao">
+                </input>
+                <input name="Sintomas Físicos" type="checkbox" class="botao-selecao">
                     <img src="{{ url_for('static', filename='imagens/31.png') }}" alt="Tensão Corporal"
                         class="imagem-botao">
                     <span>Tensão corporal</span>
-                </button>
-                <button type="button" class="botao-selecao">
+                </input>
+                <input name="Sintomas Físicos" type="checkbox" class="botao-selecao">
                     <img src="{{ url_for('static', filename='imagens/32.png') }}" alt="Ícone Dor muscular/corporal"
                         class="imagem-botao">
                     <span>Dor muscular/corporal</span>
-                </button>
-                <button type="button" class="botao-selecao">
+                </input>
+                <input name="Sintomas Físicos" type="checkbox" class="botao-selecao">
                     <img src="{{ url_for('static', filename='imagens/33.png') }}" alt="Ícone Alergia/demartite"
                         class="imagem-botao">
                     <span>Alergia/demartite</span>
-                </button>
-                <button type="button" class="botao-selecao">
+                </input>
+                <input name="Sintomas Físicos" type="checkbox" class="botao-selecao">
                     <img src="{{ url_for('static', filename='imagens/34.png') }}" alt="Ícone Gripe/doença"
                         class="imagem-botao">
                     <span>Gripe/doença</span>
-                </button>
-                <button type="button" class="botao-selecao">
+                </input>
+                <input name="Sintomas Físicos" type="checkbox" class="botao-selecao">
                     <img src="{{ url_for('static', filename='imagens/35.png') }}" alt="Ícone de Insônia"
                         class="imagem-botao">
                     <span>Insônia</span>
-                </button>
-                <button type="button" class="botao-selecao">
+                </input>
+                <input name="Sintomas Físicos" type="checkbox" class="botao-selecao">
                     <img src="{{ url_for('static', filename='imagens/36.png') }}" alt="Ícone de Alterações Hormonais"
                         class="imagem-botao">
                     <span>Alterações Hormonais</span>
-                </button>
-                <button type="button" class="botao-selecao">
+                </input>
+                <input name="Sintomas Físicos" type="checkbox" class="botao-selecao">
                     <img src="{{ url_for('static', filename='imagens/37.png') }}" alt="Ícone Problema digestivo"
                         class="imagem-botao">
                     <span>Problema digestivo</span>
-                </button>
-                <button type="button" class="botao-selecao">
+                </input>
+                <input name="Sintomas Físicos" type="checkbox" class="botao-selecao">
                     <img src="{{ url_for('static', filename='imagens/38.png') }}" alt="Ícone Sem apetite"
                         class="imagem-botao">
                     <span>Sem apetite</span>
-                </button>
-                <button type="button" class="botao-selecao">
+                </input>
+                <input name="Sintomas Físicos" type="checkbox" class="botao-selecao">
                     <img src="{{ url_for('static', filename='imagens/39.png') }}" alt="Ícone Queda de cabelo"
                         class="imagem-botao">
                     <span>Queda de cabelo</span>
-                </button>
-                <button type="button" class="botao-selecao">
+                </input>
+                <input name="Sintomas Físicos" type="checkbox" class="botao-selecao">
                     <img src="{{ url_for('static', filename='imagens/40.png') }}" alt="Ícone de Taquicardia"
                         class="imagem-botao">
                     <span>Taquicardia</span>
-                </button>
+                </input>
             </div>
         </section>
 
@@ -254,53 +254,53 @@
                         <p>Como o seu companheiro/parente socializou com você?</p>
                     </div>
                     <div class="container-botoes">
-                        <button type="button" class="botao-selecao">
+                        <input name="Conversa" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/41.jpg') }}" alt="Ícone de Palavras carinhosas"
                                 class="imagem-botao">
                             <span>Palavras carinhosas</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Conversa" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/42.jpg') }}" alt="Ícone de Presentes"
                                 class="imagem-botao">
                             <span>Presentes</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Conversa" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/43.jpg') }}" alt="Ícone de Xingamentos"
                                 class="imagem-botao">
                             <span>Xingamentos</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Conversa" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/44.jpg') }}" alt="Ícone de Piadas Ofensivas"
                                 class="imagem-botao">
                             <span>Piadas Ofensivas</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Conversa" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/45.jpg') }}" alt="Ícone de Mentiras"
                                 class="imagem-botao">
                             <span>Mentiras</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Conversa" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/46.jpg') }}" alt="Ícone de Dar um Gelo"
                                 class="imagem-botao">
                             <span>Dar um Gelo</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Conversa" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/47.jpg') }}" alt="Ícone de Ciúmes" class="imagem-botao">
                             <span>Ciumar/Ciúmes</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Conversa" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/48.jpg') }}" alt="Ícone de Culpar" class="imagem-botao">
                             <span>Culpar</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Conversa" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/49.jpg') }}" alt="Ícone de Proibir" class="imagem-botao">
                             <span>Proibir</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Conversa" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/50.jpg') }}" alt="Ícone de Chantagear"
                                 class="imagem-botao">
                             <span>Chantagear</span>
-                        </button>
+                        </input>
                     </div>
                 </section>
 
@@ -311,57 +311,57 @@
                         <p>Como o seu companheiro/parente agiu com você?</p>
                     </div>
                     <div class="container-botoes">
-                        <button type="button" class="botao-selecao">
+                        <input name="Comportamentos" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/51.jpg') }}" alt="Ícone de Empurrar"
                                 class="imagem-botao">
                             <span>Empurrar</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Comportamentos" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/52.jpg') }}" alt="Ícone de Beliscar/Arranhar" class="imagem-botao">
                             <span>Beliscar/Arranhar</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Comportamentos" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/53.jpg') }}" alt="Ícone de Chutar" class="imagem-botao">
                             <span>Chutar</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Comportamentos" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/54.jpg') }}" alt="Ícone de Apertar" class="imagem-botao">
                             <span>Apertar</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Comportamentos" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/55.jpg') }}" alt="Ícone de Bater" class="imagem-botao">
                             <span>Bater</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Comportamentos" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/56.jpg') }}" alt="Ícone de Destruir Bens"
                                 class="imagem-botao">
                             <span>Destruir Bens</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Comportamentos" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/57.jpg') }}" alt="Ícone de Brincar de Bater"
                                 class="imagem-botao">
                             <span>Brincar de Bater</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Comportamentos" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/58.jpg') }}" alt="Ícone de Obrigou a ter relações"
                                 class="imagem-botao">
                             <span>Obrigou a ter relações</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Comportamentos" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/59.jpg') }}" alt="Ícone de Abuso Sexual"
                                 class="imagem-botao">
                             <span>Abuso Sexual</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Comportamentos" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/60.jpg') }}" alt="Ícone de Confinar/Prender"
                                 class="imagem-botao">
                             <span>Confinar/Prender</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Comportamentos" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/61.jpg') }}" alt="Ícone de Sufocar/Estrangular"
                                 class="imagem-botao">
                             <span>Sufocar/Estrangular</span>
-                        </button>
+                        </input>
                     </div>
                 </section>
                 <section class="secao-registro">
@@ -370,42 +370,47 @@
                         <p>Como o seu companheiro/parente agiu com outras pessoas?</p>
                     </div>
                     <div class="container-botoes">
-                        <button type="button" class="botao-selecao">
+                        <input name="Socialização" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/62.jpg') }}" alt="Ícone de Matou/Feriu animal"
                                 class="imagem-botao">
                             <span>Matou/Feriu animal</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Socialização" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/63.jpg') }}" alt="Ícone de Tentou se matar"
                                 class="imagem-botao">
                             <span>Tentou se matar</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Socialização" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/51.jpg') }}" alt="Ícone de Empurrar"
                                 class="imagem-botao">
                             <span>Empurrar</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Socialização" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/52.jpg') }}" alt="Ícone de Beliscar/Arranhar"
                                 class="imagem-botao">
                             <span>Beliscar/Arranhar</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Socialização" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/53.jpg') }}" alt="Ícone de Chutar" class="imagem-botao">
                             <span>Chutar</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Socialização" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/55.jpg') }}" alt="Ícone de Bater" class="imagem-botao">
                             <span>Bater</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Socialização" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/64.jpg') }}" alt="Ícone de Ameaçar" class="imagem-botao">
                             <span>Ameaçar</span>
-                        </button>
-                        <button type="button" class="botao-selecao">
+                        </input>
+                        <input name="Socialização" type="checkbox" class="botao-selecao">
                             <img src="{{ url_for('static', filename='imagens/54.jpg') }}" alt="Ícone de Apertar" class="imagem-botao">
                             <span>Apertar</span>
-                        </button>
+                        </input>
+                    </div>
+                </section>
+            </div>
+        </section>
+        <button type="submit">Enviar</button>
     </form>
 </div>
 

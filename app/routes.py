@@ -51,8 +51,11 @@ def logout():
 
 @app.route("/")
 def homepage():
-    print(current_user.is_authenticated)
-    return render_template("index.html")
+    if current_user.is_authenticated:
+        return render_template("index.html")
+    else:
+        form = LoginForm()
+        return render_template("login.html", form=form)
 
 @app.route('/meuperfil')
 def meuperfil():
@@ -63,7 +66,7 @@ def meuperfil():
 #    obj = Usuario.query.get(id)
 #    return render_template("meuperfil.html", obj=obj)
 
-@app.route("/diario")
+@app.route("/diario", methods=["GET"])
 def diario():
     return render_template("diario.html")
 
@@ -75,3 +78,8 @@ def ciclo():
 @app.route('/calendario')
 def calendario():
     return render_template('calendario.html')
+
+@app.route('/submit_diario', methods=['POST'])
+def submit():
+    selected_languages = request.form.getlist('language')  # Coleta todos os checkboxes marcados
+    return f"Linguagens selecionadas: {selected_languages}"
