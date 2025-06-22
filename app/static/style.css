@@ -7,6 +7,30 @@
     box-sizing: border-box;
 }
 
+/* Mensagens flash */
+.alert-success {
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+}
+
+.alert-error {
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+}
+
+.alert-dismissible {
+    padding-right: 3rem;
+}
+
+.alert-dismissible .btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1.25rem 1rem;
+}
+
 body{
     background-color: #fafafa;
     color: #333333;
@@ -798,6 +822,16 @@ body#page-diario-body {
     .botao-selecao input[type="checkbox"]:checked + img {
         animation: none; /* Remove animação em mobile para melhor performance */
     }
+    
+    .botao-emocao input[type="checkbox"]:checked ~ .checkmark,
+    .botao-card input[type="checkbox"]:checked ~ .checkmark,
+    .botao-selecao input[type="checkbox"]:checked ~ .checkmark {
+        width: 16px;
+        height: 16px;
+        font-size: 10px;
+        right: 2px;
+        bottom: 2px;
+    }
 }
 
 /* Animação suave para transições */
@@ -809,30 +843,36 @@ body#page-diario-body {
 }
 
 /* Efeito de destaque para o texto quando selecionado */
-.botao-emocao input[type="checkbox"]:checked + img + span,
-.botao-card input[type="checkbox"]:checked + img + span,
-.botao-selecao input[type="checkbox"]:checked + img + span {
+.botao-emocao,
+.botao-card,
+.botao-selecao {
     position: relative;
 }
 
-.botao-emocao input[type="checkbox"]:checked + img + span::after,
-.botao-card input[type="checkbox"]:checked + img + span::after,
-.botao-selecao input[type="checkbox"]:checked + img + span::after {
-    content: '✓';
+.checkmark {
+    display: none;
     position: absolute;
-    top: -8px;
-    right: -8px;
+    right: 5px;
+    bottom: 5px;
     background: #4CAF50;
     color: white;
     border-radius: 50%;
     width: 20px;
     height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
+    line-height: 20px;
     font-size: 12px;
     font-weight: bold;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.botao-emocao input[type="checkbox"]:checked ~ .checkmark,
+.botao-card input[type="checkbox"]:checked ~ .checkmark,
+.botao-selecao input[type="checkbox"]:checked ~ .checkmark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     animation: checkmark-appear 0.3s ease-in-out;
 }
 
