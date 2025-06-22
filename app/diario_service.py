@@ -72,6 +72,7 @@ def registrar_diario(usuario_id, dados_form):
         },
         # Ações do parceiro
         'parceiro': {
+            'presentes': 'presentes',
             'piadas-ofensivas': 'piadas_ofensivas',
             'chantagem': 'chantagem',
             'mentira': 'mentira',

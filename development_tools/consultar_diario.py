@@ -99,3 +99,5 @@ if __name__ == "__main__":
     
     # Você pode descomentar esta linha e modificar o ID do usuário para consultar diários de um usuário específico
     # consultar_por_usuario(1)  # Substitua 1 pelo ID do usuário desejado
+
+consultar_diarios()
