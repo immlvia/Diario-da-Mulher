@@ -627,3 +627,248 @@ body#page-diario-body {
 #secao-lazer .selecionado { border-color: #48B4E9 !important; }
 #secao-sintomas .selecionado { border-color: #62B878 !important; }
 #secao-companheiro .selecionado { border-color: #A569BD !important; }
+
+/* Estilos para checkboxes personalizados */
+.botao-emocao input[type="checkbox"],
+.botao-card input[type="checkbox"],
+.botao-selecao input[type="checkbox"] {
+    display: none; /* Esconde o checkbox padrão */
+}
+
+/* Efeito visual quando checkbox está marcado*/
+.botao-emocao input[type="checkbox"]:checked,
+.botao-card input[type="checkbox"]:checked,
+.botao-selecao input[type="checkbox"]:checked {
+    background-color: rgba(145, 136, 174, 0.15);
+    border-color: #9188AE !important;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(145, 136, 174, 0.3);
+}
+
+/* Estilo para checkboxes quando marcados*/
+.botao-emocao input[type="checkbox"]:checked + img + span,
+.botao-card input[type="checkbox"]:checked + img + span,
+.botao-selecao input[type="checkbox"]:checked + img + span {
+    color: #333;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Efeito visual para o label quando checkbox está marcado */
+.botao-emocao input[type="checkbox"]:checked ~ *,
+.botao-card input[type="checkbox"]:checked ~ *,
+.botao-selecao input[type="checkbox"]:checked ~ * {
+    filter: brightness(1.1);
+}
+
+/* Hover effect para checkboxes */
+.botao-emocao:hover,
+.botao-card:hover,
+.botao-selecao:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* Estilo específico para checkboxes de emoções quando marcados */
+#secao-emocoes .botao-emocao input[type="checkbox"]:checked {
+    border-color: #F9A602 !important;
+    background-color: rgba(249, 166, 2, 0.2);
+    box-shadow: 0 4px 12px rgba(249, 166, 2, 0.4);
+}
+
+#secao-emocoes .botao-emocao input[type="checkbox"]:checked + img {
+    filter: drop-shadow(0 2px 4px rgba(249, 166, 2, 0.3));
+}
+
+/* Estilo específico para checkboxes de mente quando marcados */
+.botao-card input[type="checkbox"]:checked {
+    border-color: #EC6090 !important;
+    background-color: rgba(236, 96, 144, 0.2);
+    box-shadow: 0 4px 12px rgba(236, 96, 144, 0.4);
+}
+
+.botao-card input[type="checkbox"]:checked + img {
+    filter: drop-shadow(0 2px 4px rgba(236, 96, 144, 0.3));
+}
+
+/* Estilo específico para checkboxes de sociabilidade quando marcados*/
+.botao-card input[type="checkbox"]:checked {
+    border-color: #F2A641 !important;
+    background-color: rgba(242, 166, 65, 0.2);
+    box-shadow: 0 4px 12px rgba(242, 166, 65, 0.4);
+}
+
+.botao-card input[type="checkbox"]:checked + img {
+    filter: drop-shadow(0 2px 4px rgba(242, 166, 65, 0.3));
+}
+
+/* Estilo específico para checkboxes de lazer quando marcados*/
+.botao-selecao input[type="checkbox"]:checked {
+    border-color: #48B4E9 !important;
+    background-color: rgba(72, 180, 233, 0.2);
+    box-shadow: 0 4px 12px rgba(72, 180, 233, 0.4);
+}
+
+.botao-selecao input[type="checkbox"]:checked + img {
+    filter: drop-shadow(0 2px 4px rgba(72, 180, 233, 0.3));
+}
+
+/* Estilo específico para checkboxes de sintomas quando marcados */
+.botao-selecao input[type="checkbox"]:checked {
+    border-color: #62B878 !important;
+    background-color: rgba(98, 184, 120, 0.2);
+    box-shadow: 0 4px 12px rgba(98, 184, 120, 0.4);
+}
+
+.botao-selecao input[type="checkbox"]:checked + img {
+    filter: drop-shadow(0 2px 4px rgba(98, 184, 120, 0.3));
+}
+
+/* Estilo específico para checkboxes de companheiro quando marcados*/
+#secao-companheiro .botao-selecao input[type="checkbox"]:checked {
+    border-color: #A569BD !important;
+    background-color: rgba(165, 105, 189, 0.2);
+    box-shadow: 0 4px 12px rgba(165, 105, 189, 0.4);
+}
+
+#secao-companheiro .botao-selecao input[type="checkbox"]:checked + img {
+    filter: drop-shadow(0 2px 4px rgba(165, 105, 189, 0.3));
+}
+
+/* Efeito de pulso quando selecionado */
+@keyframes pulse-selected {
+    0% { transform: scale(1.05); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1.05); }
+}
+
+.botao-emocao input[type="checkbox"]:checked,
+.botao-card input[type="checkbox"]:checked,
+.botao-selecao input[type="checkbox"]:checked {
+    animation: pulse-selected 0.6s ease-in-out;
+}
+
+/* Indicador visual adicional - borda interna */
+.botao-emocao input[type="checkbox"]:checked::before,
+.botao-card input[type="checkbox"]:checked::before,
+.botao-selecao input[type="checkbox"]:checked::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+/* Efeito de brilho quando selecionado */
+.botao-emocao input[type="checkbox"]:checked + img,
+.botao-card input[type="checkbox"]:checked + img,
+.botao-selecao input[type="checkbox"]:checked + img {
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { filter: brightness(1) drop-shadow(0 0 2px currentColor); }
+    to { filter: brightness(1.2) drop-shadow(0 0 8px currentColor); }
+}
+
+/* Melhorias na responsividade para checkboxes */
+@media (max-width: 768px) {
+    .botao-emocao,
+    .botao-card,
+    .botao-selecao {
+        min-height: 60px;
+        padding: 8px;
+    }
+    
+    .botao-emocao input[type="checkbox"]:checked,
+    .botao-card input[type="checkbox"]:checked,
+    .botao-selecao input[type="checkbox"]:checked {
+        transform: scale(1.03);
+    }
+    
+    .botao-emocao input[type="checkbox"]:checked + img,
+    .botao-card input[type="checkbox"]:checked + img,
+    .botao-selecao input[type="checkbox"]:checked + img {
+        animation: none; /* Remove animação em mobile para melhor performance */
+    }
+}
+
+/* Animação suave para transições */
+.botao-emocao,
+.botao-card,
+.botao-selecao {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Efeito de destaque para o texto quando selecionado */
+.botao-emocao input[type="checkbox"]:checked + img + span,
+.botao-card input[type="checkbox"]:checked + img + span,
+.botao-selecao input[type="checkbox"]:checked + img + span {
+    position: relative;
+}
+
+.botao-emocao input[type="checkbox"]:checked + img + span::after,
+.botao-card input[type="checkbox"]:checked + img + span::after,
+.botao-selecao input[type="checkbox"]:checked + img + span::after {
+    content: '✓';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: checkmark-appear 0.3s ease-in-out;
+}
+
+@keyframes checkmark-appear {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Estilo para o botão de enviar */
+#registroDiarioForm button[type="submit"] {
+    background-color: #9188AE;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+#registroDiarioForm button[type="submit"]:hover {
+    background-color: #6a5f82;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(145, 136, 174, 0.3);
+}
+
+#registroDiarioForm button[type="submit"]:active {
+    background-color: #524a5c;
+    transform: translateY(0);
+}
