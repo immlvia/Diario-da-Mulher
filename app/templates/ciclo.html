@@ -3,12 +3,18 @@
 
 <div class="container ciclo-container">
     <div class="ciclo-header">
-        <button class="btn-fechar" id="btn-voltar-diario">⇦</button>
         <h1>Ciclo da Violência</h1>
     </div>
 
+
+
+    <div class="row mb-1">  
+        <h2 class="text-center">Esta página oferece um acompanhamento visual do seu bem-estar, com base nas suas interações diárias.</h2>
+    </div>
     <section class="indicador-violencia">
-        <p>Com base nas suas respostas de hoje, a situação se encontra em:</p>
+        <div class="row mb-1">  
+            <h2 class="text-center">Com base nas suas respostas de hoje, a situação se encontra em:</h2>
+        </div>
         <div class="circular-progress-container">
             <div class="circular-progress">
                 <span class="progress-value">0%</span>
@@ -16,7 +22,6 @@
         </div>
         <p id="situacaoText">Ainda não há dados para analisar a situação.</p>
     </section>
-
 </div>
 
 <script src="{{ url_for('static', filename='ciclo.js') }}"></script>
