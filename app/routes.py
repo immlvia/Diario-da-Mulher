@@ -1,11 +1,10 @@
 from app import app, db
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, redirect, url_for
 import sqlite3
+
 from app.models import Usuario
 from app.forms import UsuarioForm, LoginForm
-from flask_login import login_user, logout_user, current_user, login_required
-from app.utils import formatar_data_atual
-from app.diario_service import registrar_diario
+from flask_login import login_user, logout_user, current_user
 
 
 def conectar_db():
@@ -69,8 +68,7 @@ def meuperfil():
 
 @app.route("/diario", methods=["GET"])
 def diario():
-    data_atual = formatar_data_atual()
-    return render_template("diario.html", data_atual=data_atual)
+    return render_template("diario.html")
 
 
 @app.route('/ciclo')
@@ -81,22 +79,7 @@ def ciclo():
 def calendario():
     return render_template('calendario.html')
 
-@app.route('/salvar-diario', methods=['POST'])
-@login_required
-def salvar_diario():
-    try:
-        # Registrar a entrada do diário usando o serviço
-        registrar_diario(current_user.id, request.form)
-        
-        # Mensagem de sucesso
-        flash('Seu diário foi registrado com sucesso!', 'success')
-        
-        # Redirecionamento para a página do diário
-        return redirect(url_for("diario"))
-    
-    except Exception as e:
-        # Tratar erros
-        db.session.rollback()
-        app.logger.error(f"Erro ao salvar diário: {e}")
-        flash('Ocorreu um erro ao salvar seu diário. Por favor, tente novamente.', 'error')
-        return redirect(url_for('diario'))
+@app.route('/submit_diario', methods=['POST'])
+def submit():
+    selected_languages = request.form.getlist('language')  # Coleta todos os checkboxes marcados
+    return f"Linguagens selecionadas: {selected_languages}"
