@@ -286,10 +286,10 @@ body {
 
 /* Container principal */
 .container.ciclo-container {
-     width: 95%;
-    max-width: none;
-    margin: 20px auto;
+    max-width: 1000px;
+    margin: 40px auto;
     padding: 0 20px;
+    width: 100%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -297,11 +297,6 @@ body {
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
-
-.ciclo-container .row {
-    margin-bottom: 0.25rem !important; 
-}
-
 
 /* Cabeçalho */
 /*
@@ -323,24 +318,34 @@ body {
     padding: 20px;
     border-bottom: 1px solid #e0e0e0;
     position: relative;
-    background: transparent;
+    background: linear-gradient(to right, #ffffff, #ede7f6);
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
 }
 
 .ciclo-header h1 {
-    font-family: "Quicksand", sans-serif; 
-    font-size: 28px;
-    font-weight: 600;                  
-    color: #4a148c;                        
+    font-size: 24px;
+    font-weight: 700;
+    color: #4a148c;
     margin: 0;
     text-align: center;
-    padding: 10px 0;                    
-    letter-spacing: normal;             
-    text-shadow: none;                  
 }
 
-
+.ciclo-header .btn-fechar {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    color: #4a148c;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    z-index: 10;
+    transition: color 0.3s ease;
+}
 
 .ciclo-header .btn-fechar:hover,
 .ciclo-header .btn-fechar:focus {
@@ -357,8 +362,8 @@ body {
 
 /* Círculo de progresso */
 .circular-progress-container {
-    width: 300px;  
-    height: 300px; 
+    width: 200px;
+    height: 200px;
     margin: 2rem auto;
     position: relative;
     display: flex;
@@ -375,17 +380,23 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.08);
     position: relative;
 }
 
 .circular-progress .progress-value {
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 600;
     color: #4a148c;
     position: absolute;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.1);
 
 }
 
+/*Cabeçalho ciclo*/
+/*
+usar no footer
+*/
 .ciclo-header {
     display: flex;
     justify-content: center; 
