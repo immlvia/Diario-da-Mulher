@@ -77,7 +77,6 @@ class Diario(db.Model):
     ciumes = db.Column(db.Boolean, default=False)
     culpar = db.Column(db.Boolean, default=False)
     desqualificar = db.Column(db.Boolean, default=False)
-    presentes = db.Column(db.Boolean, default=False)
     palavras_carinho = db.Column(db.Boolean, default=False)
     humilhar = db.Column(db.Boolean, default=False)
     xingamentos = db.Column(db.Boolean, default=False)
@@ -154,7 +153,6 @@ class Diario(db.Model):
         
         # Ações do parceiro
         if self.palavras_carinho: total -= 5
-        if self.presentes: total -= 5
         if self.piadas_ofensivas: total += 10
         if self.chantagem: total += 15
         if self.mentira: total += 10
