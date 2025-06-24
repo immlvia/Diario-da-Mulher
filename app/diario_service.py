@@ -50,7 +50,7 @@ def registrar_diario(usuario_id, dados_form):
         # Lazer
         'lazer': {
             'ferias': 'ferias',
-            'encontros': 'encontros',
+            'encontro': 'encontros',
             'ressaca': 'ressaca',
             'alcool': 'alcool',
             'cigarro': 'cigarro'
@@ -59,22 +59,22 @@ def registrar_diario(usuario_id, dados_form):
         'sintomas': {
             'dor-cabeca': 'dor_cabeca',
             'tensao-corporal': 'tensao_corporal',
-            'dor-corporal': 'dor_corporal',
+            'dor-muscular': 'dor_corporal',
             'insonia': 'insonia',
             'queda-cabelo': 'queda_cabelo',
             'taquicardia': 'taquicardia',
             'surto-acne': 'surto_acne',
             'sem-apetite': 'sem_apetite',
             'alergia-dermatite': 'alergia_dermatite',
-            'gripe': 'gripe',
-            'alteracao-hormonal': 'alteracao_hormonal',
-            'problemas-digestivos': 'problemas_digestivos'
+            'gripe-doenca': 'gripe',
+            'alteracoes-hormonais': 'alteracao_hormonal',
+            'problema-digestivo': 'problemas_digestivos'
         },
-        # Ações do parceiro
-        'parceiro': {
+        # Ações do parceiro - conversa e comportamentos
+        'conversa': {
             'piadas-ofensivas': 'piadas_ofensivas',
-            'chantagem': 'chantagem',
-            'mentira': 'mentira',
+            'chantagear': 'chantagem',
+            'mentiras': 'mentira',
             'dar-gelo': 'dar_gelo',
             'ciumes': 'ciumes',
             'culpar': 'culpar',
@@ -83,23 +83,25 @@ def registrar_diario(usuario_id, dados_form):
             'humilhar': 'humilhar',
             'xingamentos': 'xingamentos',
             'ameacar': 'ameacar',
-            'proibir': 'proibir',
+            'proibir': 'proibir'
+        },
+        'comportamentos': {
             'destruir-bens': 'destruir_bens',
             'apertar': 'apertar',
             'brincar-bater': 'brincar_bater',
-            'beliscar': 'beliscar',
+            'beliscar-arranhar': 'beliscar',
             'empurrar': 'empurrar',
             'bater': 'bater',
             'chutar': 'chutar',
-            'confinar': 'confinar',
-            'ameacar-objetos': 'ameacar_objetos',
-            'ameacar-armas': 'ameacar_armas',
-            'ameacar-morte': 'ameacar_morte',
-            'obrigou-relacao-sexual': 'obrigou_relacao_sexual',
+            'confinar-prender': 'confinar',
+            'obrigou-relacoes': 'obrigou_relacao_sexual',
             'abuso-sexual': 'abuso_sexual',
-            'sufocar': 'sufocar',
-            'feriu-animal': 'feriu_animal',
-            'tentou-se-matar': 'tentou_se_matar'
+            'sufocar-estrangular': 'sufocar'
+        },
+        'socializacao': {
+            'matou-feriu-animal': 'feriu_animal',
+            'tentou-se-matou': 'tentou_se_matar',
+            'ameacar': 'ameacar_objetos'  # Note: This is an approximation, may need adjustment
         }
     }
     
@@ -109,6 +111,8 @@ def registrar_diario(usuario_id, dados_form):
         for valor in valores_selecionados:
             if valor in campos:
                 setattr(dia_de_hoje, campos[valor], True)
+            else:
+                print(f"Aviso: Valor '{valor}' na categoria '{categoria}' não encontrado no mapeamento")
     
     # Cálculo da pontuação
     dia_de_hoje.pontuacao_total = dia_de_hoje.calcular_pontuacao()

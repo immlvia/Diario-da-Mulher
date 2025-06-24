@@ -3,12 +3,18 @@
 
 <div class="container ciclo-container">
     <div class="ciclo-header">
-        <button class="btn-fechar" id="btn-voltar-diario">⇦</button>
         <h1>Ciclo da Violência</h1>
     </div>
 
+
+
+    <div class="row mb-1">  
+        <h2 class="text-center">Esta página oferece um acompanhamento visual do seu bem-estar, com base nas suas interações diárias.</h2>
+    </div>
     <section class="indicador-violencia">
-        <p>Com base nas suas respostas de hoje, a situação se encontra em:</p>
+        <div class="row mb-1">  
+            <h2 class="text-center">Com base nas suas respostas de hoje, a situação se encontra em:</h2>
+        </div>
         <div class="circular-progress-container">
             <div class="circular-progress">
                 <span class="progress-value">0%</span>
@@ -16,9 +22,50 @@
         </div>
         <p id="situacaoText">Ainda não há dados para analisar a situação.</p>
     </section>
-
 </div>
 
-<script src="{{ url_for('static', filename='ciclo.js') }}"></script>
+<!-- <script src="{{ url_for('static', filename='ciclo.js') }}"></script> -->
+
+<script>
+    // Este evento garante que o código só vai rodar depois que a página inteira carregar.
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        // AQUI A MÁGICA ACONTECE:
+        // O Python/Flask substitui a parte "{{ porcentagem | tojson }}" pelo número que calculamos.
+        // O navegador vai ler, por exemplo: const porcentagem = 45;
+        const porcentagem = {{ porcentagem | tojson }};
+
+        // Agora o JavaScript "sabe" qual é a variável e pode usá-la.
+        const progressCircle = document.querySelector('.circular-progress');
+        const progressValue = document.querySelector('.progress-value');
+        const situacaoText = document.getElementById('situacaoText');
+
+        // Mostra o valor da porcentagem no meio do círculo
+        if (progressValue) {
+            progressValue.textContent = `${porcentagem}%`;
+        }
+
+        // Desenha a parte colorida do círculo de acordo com a porcentagem
+        if (progressCircle) {
+            progressCircle.style.background = `
+                radial-gradient(circle at center, #f5f0f8 60%, transparent 60%),
+                conic-gradient(#6b4faa 0% ${porcentagem}%, #d3c1e5 ${porcentagem}% 100%)
+            `;
+        }
+
+        // Atualiza a mensagem de texto com base na porcentagem
+        if (situacaoText) {
+            if (porcentagem === 0) {
+                situacaoText.textContent = "Ainda não há dados para analisar a situação.";
+            } else if (porcentagem <= 33) {
+                situacaoText.textContent = "Situação aparentemente estável.";
+            } else if (porcentagem <= 66) {
+                situacaoText.textContent = "Reaja: possíveis sinais de alerta.";
+            } else {
+                situacaoText.textContent = "Denuncie: situação de risco elevado.";
+            }
+        }
+    });
+</script>
 
 {% endblock %}

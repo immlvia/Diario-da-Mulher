@@ -6,22 +6,13 @@ from app.forms import UsuarioForm, LoginForm
 from flask_login import login_user, logout_user, current_user, login_required
 from app.utils import formatar_data_atual
 from app.diario_service import registrar_diario
+from app.ciclo_service import calcular_dados_ciclo
 
 
 def conectar_db():
     conectar = sqlite3.connect()
     return conectar
 
-
-def criar_tabela():
-    conectar = conectar_db()
-    cursor = conectar.cursor()
-    cursor.execute ('''
-                   CREAT TABLE IF NOT EXISTS usuarios (
-                   id INTEGER PRIMARY KEY      AUTOINCREMENT,
-                   nome TEXT NOT NULL,
-                   idade INTEGER)
-                   ''')
 
 @app.route("/cadastro", methods=["GET", "POST"])
 def cadastro():
@@ -34,6 +25,8 @@ def cadastro():
     
     return render_template("cadastro.html", context=context, form=form)
 
+
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm()
@@ -44,11 +37,15 @@ def login():
     
     return render_template("login.html", form=form)
 
+
+
 @app.route("/sair")
 def logout():
     logout_user()
     form = LoginForm()
     return render_template("login.html", form=form)
+
+
 
 @app.route("/")
 def homepage():
@@ -57,6 +54,8 @@ def homepage():
     else:
         form = LoginForm()
         return render_template("login.html", form=form)
+
+
 
 @app.route('/meuperfil')
 def meuperfil():
@@ -67,19 +66,31 @@ def meuperfil():
 #    obj = Usuario.query.get(id)
 #    return render_template("meuperfil.html", obj=obj)
 
+
+
 @app.route("/diario", methods=["GET"])
 def diario():
     data_atual = formatar_data_atual()
     return render_template("diario.html", data_atual=data_atual)
 
 
+
 @app.route('/ciclo')
+@login_required 
 def ciclo():
-    return render_template('ciclo.html')
+    # Chama A função de serviço para obter a porcentagem
+    porcentagem_ciclo = calcular_dados_ciclo(current_user.id)
+
+    # Envia a porcentagem para o template HTML
+    return render_template('ciclo.html', porcentagem=porcentagem_ciclo)
+
+
 
 @app.route('/calendario')
 def calendario():
     return render_template('calendario.html')
+
+
 
 @app.route('/salvar-diario', methods=['POST'])
 @login_required
@@ -100,6 +111,8 @@ def salvar_diario():
         app.logger.error(f"Erro ao salvar diário: {e}")
         flash('Ocorreu um erro ao salvar seu diário. Por favor, tente novamente.', 'error')
         return redirect(url_for('diario'))
+
+
 
 from app.forms import EditarContaForm
 
