@@ -4,13 +4,13 @@
 <div id="page-diario-body"></div>
 <div id="page-diario" class="page">
     <div class="diario-header">
-        <button class="btn-fechar" id="btn-ir-capa">X</button>
+        <a href="{{ url_for('homepage') }}" class="btn-fechar" id="btn-ir-capa" title="Voltar para o início">X</a>
         <h1>{{ data_atual }}</h1>
         <button class="btn-calendario">🗓</button>
     </div>
     
     <div class="intro-banner">
-        <img src="{{ url_for('static', filename='imagens/10.png') }}" alt="Ilustração de uma mulher pensativa">
+        <img src="{{ url_for('static', filename='imagens/10.png') }}" alt="Ilustração de uma mulher pensativa" class="mulher-banner-img">
     </div>
 
     <form id="registroDiarioForm" method="POST" action="{{ url_for('salvar_diario') }}">
@@ -293,40 +293,40 @@
         </section>
 
         <!-- Seção Companheiro -->
-        <section class="secao-registro" id="secao-companheiro">
-            <div class="secao-companhia">
-                <img src="{{ url_for('static', filename='imagens/28.png') }}" alt="Ícone de companheiro">
+    <div class="intro-banner-2">
+        <img src="{{ url_for('static', filename='imagens/28.png') }}" alt="Ícone de companheiro" class="companheiro-banner-img">
+    </div>
                 
                 <!-- Subseção Conversa -->
-                <section class="secao-registro">
-                    <div class="secao-header">
-                        <h2>Conversa</h2>
-                        <p>Como o seu companheiro/parente socializou com você?</p>
-                    </div>
-                    <div class="container-botoes">
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="conversa" value="palavras-carinhosas">
-                            <img src="{{ url_for('static', filename='imagens/41.jpg') }}" alt="Ícone de Palavras carinhosas" class="imagem-botao">
-                            <span>Palavras carinhosas</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="conversa" value="presentes">
-                            <img src="{{ url_for('static', filename='imagens/42.jpg') }}" alt="Ícone de Presentes" class="imagem-botao">
-                            <span>Presentes</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="conversa" value="xingamentos">
-                            <img src="{{ url_for('static', filename='imagens/43.jpg') }}" alt="Ícone de Xingamentos" class="imagem-botao">
-                            <span>Xingamentos</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="conversa" value="piadas-ofensivas">
-                            <img src="{{ url_for('static', filename='imagens/44.jpg') }}" alt="Ícone de Piadas Ofensivas" class="imagem-botao">
-                            <span>Piadas Ofensivas</span>
-                            <div class="checkmark">✓</div>
+        <section class="secao-companheiro">
+            <div class="secao-header">
+                    <h2>Conversa</h2>
+                    <p>Como o seu companheiro/parente socializou com você?</p>
+            </div>
+            <div class="container-botoes">
+                <label class="botao-selecao">
+                    <input type="checkbox" name="conversa" value="palavras-carinhosas">
+                    <img src="{{ url_for('static', filename='imagens/41.jpg') }}" alt="Ícone de Palavras carinhosas" class="imagem-botao">
+                    <span>Palavras carinhosas</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="conversa" value="presentes">
+                    <img src="{{ url_for('static', filename='imagens/42.jpg') }}" alt="Ícone de Presentes" class="imagem-botao">
+                    <span>Presentes</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="conversa" value="xingamentos">
+                    <img src="{{ url_for('static', filename='imagens/43.jpg') }}" alt="Ícone de Xingamentos" class="imagem-botao">
+                    <span>Xingamentos</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="conversa" value="piadas-ofensivas">
+                    <img src="{{ url_for('static', filename='imagens/44.jpg') }}" alt="Ícone de Piadas Ofensivas" class="imagem-botao">
+                    <span>Piadas Ofensivas</span>
+                    <div class="checkmark">✓</div>
                         </label>
                         <label class="botao-selecao">
                             <input type="checkbox" name="conversa" value="mentiras">
@@ -365,10 +365,10 @@
                             <div class="checkmark">✓</div>
                         </label>
                     </div>
-                </section>
+        </section>
 
                 <!-- Subseção Comportamentos -->
-                <section class="secao-registro">
+        <section class="secao-companheiro">
                     <div class="secao-header">
                         <h2>Comportamentos</h2>
                         <p>Como o seu companheiro/parente agiu com você?</p>
@@ -441,10 +441,10 @@
                             <div class="checkmark">✓</div>
                         </label>
                     </div>
-                </section>
+        </section>
 
                 <!-- Subseção Socialização -->
-                <section class="secao-registro">
+        <section class="secao-companheiro">
                     <div class="secao-header">
                         <h2>Socialização</h2>
                         <p>Como o seu companheiro/parente agiu com outras pessoas?</p>
@@ -499,8 +499,6 @@
                             <div class="checkmark">✓</div>
                         </label>
                     </div>
-                </section>
-            </div>
         </section>
         
         <button type="submit">Enviar</button>
