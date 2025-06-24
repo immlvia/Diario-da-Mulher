@@ -100,3 +100,23 @@ def salvar_diario():
         app.logger.error(f"Erro ao salvar diário: {e}")
         flash('Ocorreu um erro ao salvar seu diário. Por favor, tente novamente.', 'error')
         return redirect(url_for('diario'))
+
+from app.forms import EditarContaForm
+
+@app.route("/editar-conta", methods=["GET", "POST"])
+@login_required
+def editar_conta():
+    form = EditarContaForm(usuario_atual=current_user)
+
+    if form.validate_on_submit():
+        form.salvar()
+        flash("Dados atualizados com sucesso!", "success")
+        return redirect(url_for("meuperfil"))
+
+    # Preenche o campo com o e-mail atual
+    if request.method == "GET":
+        form.email.data = current_user.email
+
+    return render_template("editar_conta.html", form=form)
+
+        

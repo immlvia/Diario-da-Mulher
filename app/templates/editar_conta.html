@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Editar Conta</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <div class="form-group">
+            {{ form.email.label }}
+            {{ form.email(class="form-control") }}
+            {% for error in form.email.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.senha_atual.label }}
+            {{ form.senha_atual(class="form-control") }}
+            {% for error in form.senha_atual.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.nova_senha.label }}
+            {{ form.nova_senha(class="form-control") }}
+            {% for error in form.nova_senha.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        {{ form.btnSubmit(class="btn btn-primary mt-3") }}
+    </form>
+</div>
+{% endblock %}
