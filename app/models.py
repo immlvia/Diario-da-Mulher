@@ -70,48 +70,45 @@ class Diario(db.Model):
     problemas_digestivos = db.Column(db.Boolean, default=False) #sem pontuação
 
     # Ações do parceiro
+    #Como seu parceiro socializou com você?
+    palavras_carinho = db.Column(db.Boolean, default=False)
+    presentes = db.Column(db.Boolean, default=False)
+    xingamentos = db.Column(db.Boolean, default=False)
     piadas_ofensivas = db.Column(db.Boolean, default=False)
-    chantagem = db.Column(db.Boolean, default=False)
     mentira = db.Column(db.Boolean, default=False)
     dar_gelo = db.Column(db.Boolean, default=False)
     ciumes = db.Column(db.Boolean, default=False)
     culpar = db.Column(db.Boolean, default=False)
-    desqualificar = db.Column(db.Boolean, default=False)
-    palavras_carinho = db.Column(db.Boolean, default=False)
-    humilhar = db.Column(db.Boolean, default=False)
-    xingamentos = db.Column(db.Boolean, default=False)
-    ameacar = db.Column(db.Boolean, default=False)
     proibir = db.Column(db.Boolean, default=False)
-    destruir_bens = db.Column(db.Boolean, default=False)
-    apertar = db.Column(db.Boolean, default=False)
-    brincar_bater = db.Column(db.Boolean, default=False)
-    beliscar = db.Column(db.Boolean, default=False)
+    chantagem = db.Column(db.Boolean, default=False)
+
+    #Como seu parceiro agiu com você?
     empurrar = db.Column(db.Boolean, default=False)
-    bater = db.Column(db.Boolean, default=False)
+    beliscar = db.Column(db.Boolean, default=False)
     chutar = db.Column(db.Boolean, default=False)
-    confinar = db.Column(db.Boolean, default=False)
-    ameacar_objetos = db.Column(db.Boolean, default=False)
-    ameacar_armas = db.Column(db.Boolean, default=False)
-    ameacar_morte = db.Column(db.Boolean, default=False)
+    apertar = db.Column(db.Boolean, default=False)
+    bater = db.Column(db.Boolean, default=False)
+    destruir_bens = db.Column(db.Boolean, default=False)
+    brincar_bater = db.Column(db.Boolean, default=False)
     obrigou_relacao_sexual = db.Column(db.Boolean, default=False)
     abuso_sexual = db.Column(db.Boolean, default=False)
+    confinar = db.Column(db.Boolean, default=False)
     sufocar = db.Column(db.Boolean, default=False)
+
+    #Como seu parceiro agiu com outros?
     feriu_animal = db.Column(db.Boolean, default=False)
     tentou_se_matar = db.Column(db.Boolean, default=False)
+    empurrar_outro = db.Column(db.Boolean, default=False)
+    beliscar_outro = db.Column(db.Boolean, default=False)
+    chutar_outro = db.Column(db.Boolean, default=False)
+    bater_outro = db.Column(db.Boolean, default=False)
+    ameacar = db.Column(db.Boolean, default=False)
+    apertar_outro = db.Column(db.Boolean, default=False)
 
     pontuacao_total = db.Column(db.Integer)
-
-    def validar_emoções(self):
-        #Para que não seja selecionado emoções opostas (Ele vai tirar a selenção das emoções conflitantes com "feliz") Arrumar depois
-        if self.feliz:
-            self.triste = False
-            self.irritavel = False
-            self.raiva = False
-            self.indiferenca = False
-            
+      
     def calcular_pontuacao(self):
-        
-        self.validar_emoções()
+
         total = 0
         
         # Sintomas emocionais
@@ -124,8 +121,13 @@ class Diario(db.Model):
         if self.ansiosa: total += 2
         if self.falta_controle: total += 0  #sem pontuação
         if self.indiferenca: total += 0  #sem pontuação
+
+        #mente
+        if self.mente_confusa: total += 0 #sem pontuação
+        if self.calma: total += 0 #sem pontuação
         if self.estresse: total += 1
         if self.motivacao: total -= 1
+        if self.criatividade: total += 0 #sem pontuação
         if self.bom_rendimento: total -= 1
         if self.preguica_desanimo: total += 0 #sem pontuação
         
@@ -152,37 +154,43 @@ class Diario(db.Model):
         if self.problemas_digestivos: total += 0 #sem pontuação
         
         # Ações do parceiro
+        #Conversa:
         if self.palavras_carinho: total -= 5
+        if self.presentes: total -= 5
+        if self.xingamentos: total += 45
         if self.piadas_ofensivas: total += 10
-        if self.chantagem: total += 15
         if self.mentira: total += 10
         if self.dar_gelo: total += 25
         if self.ciumes: total += 30
         if self.culpar: total += 35
-        if self.desqualificar: total += 40
-        if self.humilhar: total +=45
-        if self.xingamentos: total += 45
-        if self.ameacar: total += 50
         if self.proibir: total += 55
-        if self.destruir_bens: total +=60
-        if self.apertar: total += 70
-        if self.brincar_bater: total += 75
-        if self.beliscar: total += 80
+        if self.chantagem: total += 15
+
+        #Comportamentos
+        #Como seu parceiro agiu com você:
         if self.empurrar: total += 85
-        if self.bater: total += 90
+        if self.beliscar: total += 80
         if self.chutar: total += 95
-        if self.confinar: total += 100
-        if self.ameacar_objetos: total += 105
-        if self.ameacar_armas: total += 110
-        if self.ameacar_morte: total += 115
+        if self.apertar: total += 70
+        if self.bater: total += 90
+        if self.destruir_bens: total +=60
+        if self.brincar_bater: total += 75
         if self.obrigou_relacao_sexual: total += 120
         if self.abuso_sexual: total += 125
+        if self.confinar: total += 100
         if self.sufocar: total += 130
+
+        #Como seu parceiro agiu com os outros:
         if self.feriu_animal: total +=60
         if self.tentou_se_matar: total += 60
-        
+        if self.empurrar_outro: total += 85 #TODOS OS "OUTROS" TEM A MESMA PONTUAÇÃO
+        if self.beliscar_outro: total += 80
+        if self.chutar_outro: total += 95
+        if self.bater_outro: total += 90
+        if self.ameacar: total += 50
+        if self.apertar_outro: total += 70
+
+
         self.pontuacao_total = total
         
         return total
-
-#Fazer código para que emoções opostas não possam ser escolhidas mais tarde

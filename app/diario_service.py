@@ -2,7 +2,6 @@ from app import db
 from app.models import Diario
 from datetime import datetime
 
-# Mapeamento de campos do formulário para atributos do modelo
 mapeamento_campos = {
     # Emoções
     'emocoes': {
@@ -66,7 +65,8 @@ mapeamento_campos = {
         'ciumes': 'ciumes',
         'culpar': 'culpar',
         'desqualificar': 'desqualificar',
-        'palavras-carinho': 'palavras_carinho',
+        'palavras-carinhosas': 'palavras_carinho',
+        'presentes': 'presentes',
         'humilhar': 'humilhar',
         'xingamentos': 'xingamentos',
         'ameacar': 'ameacar',
@@ -81,14 +81,19 @@ mapeamento_campos = {
         'bater': 'bater',
         'chutar': 'chutar',
         'confinar-prender': 'confinar',
-        'obrigou-relacoes': 'obrigou_relacao_sexual',
+        'obrigou_relacao_sexual': 'obrigou_relacao_sexual',
         'abuso-sexual': 'abuso_sexual',
         'sufocar-estrangular': 'sufocar'
     },
     'socializacao': {
         'matou-feriu-animal': 'feriu_animal',
         'tentou-se-matou': 'tentou_se_matar',
-        'ameacar': 'ameacar_objetos'
+        'ameacar': 'ameacar',
+        'empurrar-outros': 'empurrar_outro',
+        'beliscar-arranhar-outros' : 'beliscar_outro',
+        'chutar-outros' : 'chutar_outro',
+        'bater-outros' : 'bater_outro',
+        'apertar-outros' : 'apertar_outro'
     }
 }
 
@@ -115,6 +120,25 @@ def registrar_diario(usuario_id, dados_form):
             else:
                 print(
                     f"Aviso: Valor '{valor}' na categoria '{categoria}' não encontrado no mapeamento")
+        
+    pontuacao_base_dia = dia_de_hoje.calcular_pontuacao()
+    pontuacao_final_dia = pontuacao_base_dia
+    historico_diario = Diario.query.filter_by(usuario_id=usuario_id).all()
+
+    if historico_diario:
+        soma_historico = sum(entrada.pontuacao_total for entrada in historico_diario if entrada.pontuacao_total is not None)
+        total_historico = len(historico_diario)
+        media_historico = soma_historico / total_historico if total_historico > 0 else 0
+        
+        limite_alerta = 80 #
+
+        if media_historico >= limite_alerta:
+            if dia_de_hoje.palavras_carinho:
+                pontuacao_final_dia += 10 # Ajusta de -5 para +5
+            if dia_de_hoje.presentes:
+                pontuacao_final_dia += 10 # Ajusta de -5 para +5
+
+    dia_de_hoje.pontuacao_total = pontuacao_final_dia
 
     # Cálculo da pontuação
     dia_de_hoje.pontuacao_total = dia_de_hoje.calcular_pontuacao()

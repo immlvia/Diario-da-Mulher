@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: dbf9cc9972b5
+Revision ID: db1a4a028022
 Revises: 
-Create Date: 2025-06-24 20:36:17.164946
+Create Date: 2025-06-25 13:47:39.463979
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'dbf9cc9972b5'
+revision = 'db1a4a028022'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -69,34 +69,35 @@ def upgrade():
     sa.Column('gripe', sa.Boolean(), nullable=True),
     sa.Column('alteracao_hormonal', sa.Boolean(), nullable=True),
     sa.Column('problemas_digestivos', sa.Boolean(), nullable=True),
+    sa.Column('palavras_carinho', sa.Boolean(), nullable=True),
+    sa.Column('presentes', sa.Boolean(), nullable=True),
+    sa.Column('xingamentos', sa.Boolean(), nullable=True),
     sa.Column('piadas_ofensivas', sa.Boolean(), nullable=True),
-    sa.Column('chantagem', sa.Boolean(), nullable=True),
     sa.Column('mentira', sa.Boolean(), nullable=True),
     sa.Column('dar_gelo', sa.Boolean(), nullable=True),
     sa.Column('ciumes', sa.Boolean(), nullable=True),
     sa.Column('culpar', sa.Boolean(), nullable=True),
-    sa.Column('desqualificar', sa.Boolean(), nullable=True),
-    sa.Column('palavras_carinho', sa.Boolean(), nullable=True),
-    sa.Column('humilhar', sa.Boolean(), nullable=True),
-    sa.Column('xingamentos', sa.Boolean(), nullable=True),
-    sa.Column('ameacar', sa.Boolean(), nullable=True),
     sa.Column('proibir', sa.Boolean(), nullable=True),
-    sa.Column('destruir_bens', sa.Boolean(), nullable=True),
-    sa.Column('apertar', sa.Boolean(), nullable=True),
-    sa.Column('brincar_bater', sa.Boolean(), nullable=True),
-    sa.Column('beliscar', sa.Boolean(), nullable=True),
+    sa.Column('chantagem', sa.Boolean(), nullable=True),
     sa.Column('empurrar', sa.Boolean(), nullable=True),
-    sa.Column('bater', sa.Boolean(), nullable=True),
+    sa.Column('beliscar', sa.Boolean(), nullable=True),
     sa.Column('chutar', sa.Boolean(), nullable=True),
-    sa.Column('confinar', sa.Boolean(), nullable=True),
-    sa.Column('ameacar_objetos', sa.Boolean(), nullable=True),
-    sa.Column('ameacar_armas', sa.Boolean(), nullable=True),
-    sa.Column('ameacar_morte', sa.Boolean(), nullable=True),
+    sa.Column('apertar', sa.Boolean(), nullable=True),
+    sa.Column('bater', sa.Boolean(), nullable=True),
+    sa.Column('destruir_bens', sa.Boolean(), nullable=True),
+    sa.Column('brincar_bater', sa.Boolean(), nullable=True),
     sa.Column('obrigou_relacao_sexual', sa.Boolean(), nullable=True),
     sa.Column('abuso_sexual', sa.Boolean(), nullable=True),
+    sa.Column('confinar', sa.Boolean(), nullable=True),
     sa.Column('sufocar', sa.Boolean(), nullable=True),
     sa.Column('feriu_animal', sa.Boolean(), nullable=True),
     sa.Column('tentou_se_matar', sa.Boolean(), nullable=True),
+    sa.Column('empurrar_outro', sa.Boolean(), nullable=True),
+    sa.Column('beliscar_outro', sa.Boolean(), nullable=True),
+    sa.Column('chutar_outro', sa.Boolean(), nullable=True),
+    sa.Column('bater_outro', sa.Boolean(), nullable=True),
+    sa.Column('ameacar', sa.Boolean(), nullable=True),
+    sa.Column('apertar_outro', sa.Boolean(), nullable=True),
     sa.Column('pontuacao_total', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['usuario_id'], ['usuario.id'], ),
     sa.PrimaryKeyConstraint('id')

@@ -6,18 +6,18 @@
     <div class="diario-header">
         <h1>{{ data_atual }}</h1>
     </div>
-        <!--
+
         <div class="intro-banner">
             <img src="{{ url_for('static', filename='imagens/10.png') }}" alt="Ilustração de uma mulher pensativa" class="mulher-banner-img">
         </div>
-        -->
+
 
     <form id="registroDiarioForm" method="POST" action="{{ url_for('salvar_diario') }}">
         <!-- Seção Emoções -->
         <section class="secao-registro" id="secao-emocoes">
             <div class="secao-header">
                 <h1>Emoções</h1>
-                <h2>Como me senti hoje?</h2>
+                <p>Como me senti hoje?</p>
             </div>
             <div class="secao-emocoes">
                 <label class="botao-emocao">

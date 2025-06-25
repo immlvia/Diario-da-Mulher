@@ -48,7 +48,7 @@ opcoes_legiveis = {
 
     #Conversa
     'palavras_carinho': 'Palavras de carinho',
-    #'presentes':'Presentes',
+    'presentes':'Presentes',
     'xingamentos': 'Xingamentos',       
     'piadas_ofensivas': 'Piadas ofensivas',
     'mentira': 'Mentiras',
@@ -72,12 +72,12 @@ opcoes_legiveis = {
 
     #Socialização
     'feriu_animal': 'Matou ou feriu animal',    'tentou_se_matar': 'Tentou se matar',
-    #'empurrar_outro':'Empurrar',
-    #'beliscar_outro': 'Beliscar ou arranhar',
-    #'chutar_outro': 'Chutar',
-    #'bater_outro': 'Bater',
+    'empurrar_outro':'Empurrar',
+    'beliscar_outro': 'Beliscar ou arranhar',
+    'chutar_outro': 'Chutar',
+    'bater_outro': 'Bater',
     'ameacar': 'Ameaçar',
-    #'apertar_outro': 'Apertar'
+    'apertar_outro': 'Apertar'
 }
 
 categorias_legiveis = {
