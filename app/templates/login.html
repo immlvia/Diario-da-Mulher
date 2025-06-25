@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="icon" href="data:," type="image/x-icon">
 </head>
 
 <body>
@@ -49,10 +48,12 @@
                     </div>
 
                     <div class="botoes-login d-grid gap-2">
-                        <div class="gp-2 d-grid">
-                            {{ form.btnSubmit(class="btn entrar-btn btn-primary") }}
-                        </div>
-                        <a href="/cadastro" class="btn cadastro-btn btn-outline-secondary">Não tenho conta</a>
+                        <button type="submit" class="btn btn-primary py-2">
+                            Entrar
+                        </button>
+                        <a href="/cadastro" class="btn btn-outline-secondary py-2">
+                            Não tenho conta
+                        </a>
                     </div>
             </form>
         </div>

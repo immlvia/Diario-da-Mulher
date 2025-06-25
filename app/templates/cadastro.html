@@ -17,6 +17,23 @@
         <form action="" method="post" class="row card-cadastro p-4 rounded shadow">
 
             <h1 class="mb-4">Criar uma conta no Diário da Mulher</h1>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="alert alert-danger mb-3">
+                     {% for category, message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            {% if form.email.errors %}
+              <div class="alert alert-danger mb-3">
+                {% for error in form.email.errors %}
+                    {{ error }}
+                {% endfor %}
+              </div>
+            {% endif %}
 
 
             {{ form.csrf_token }}

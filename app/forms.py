@@ -4,6 +4,7 @@ from wtforms.validators import DataRequired, Email, ValidationError
 
 from app import db, bcrypt
 from app.models import Usuario
+from sqlalchemy.exc import IntegrityError
 
 class UsuarioForm(FlaskForm):
     nome = StringField("Nome", validators=[DataRequired()])
@@ -13,20 +14,26 @@ class UsuarioForm(FlaskForm):
 
     def validate_email(self, email):
         if Usuario.query.filter_by(email=email.data).first():
-            return ValidationError('Usuário já cadastrado com esse Email.')
+           raise ValidationError('Usuário já cadastrado com esse Email.')
 
     def save(self):
-        senha = bcrypt.generate_password_hash(self.senha.data.encode('utf-8'))
+        try:
+            senha = bcrypt.generate_password_hash(self.senha.data.encode('utf-8'))
 
-        usuario = Usuario(
-            nome = self.nome.data,
-            email = self.email.data,
-            senha = senha
+            usuario = Usuario(
+                nome = self.nome.data,
+                email = self.email.data,
+                senha = senha
         )
 
-        db.session.add(usuario)
-        db.session.commit()
-        return usuario
+            db.session.add(usuario)
+            db.session.commit()
+            return usuario
+        except IntegrityError:
+            db.session.rollback()
+            raise ValidationError('Este email já está cadastrado.')
+
+
 
 class LoginForm(FlaskForm):
     email = StringField("Email", validators=[DataRequired(), Email()])

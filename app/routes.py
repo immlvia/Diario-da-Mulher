@@ -19,10 +19,13 @@ def cadastro():
     form = UsuarioForm()
     context = {}
     if form.validate_on_submit():
-        usuario = form.save()
-        login_user(usuario, remember=True)
-        return redirect(url_for('login'))
-    
+        try:
+            usuario = form.save()
+            login_user(usuario, remember=True)
+            flash('Cadastro realizado com sucesso!', 'success')
+            return redirect(url_for('login'))
+        except ValidationError as e:
+            flash(str(e), 'error')
     return render_template("cadastro.html", context=context, form=form)
 
 
