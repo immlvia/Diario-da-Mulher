@@ -6,7 +6,8 @@
     <div class="diario-header">
         <a href="{{ url_for('homepage') }}" class="btn-fechar" id="btn-ir-capa" title="Voltar para o início">X</a>
         <h1>{{ data_atual }}</h1>
-        <button class="btn-calendario">🗓</button>
+        <a href="{{ url_for('calendario') }}" class="btn-calendario" id="btn-ir-calendario" title="Ir para calendário">🗓</a>
+
     </div>
     
         <div class="intro-banner">
@@ -298,7 +299,7 @@
         </div>
                 
                 <!-- Seção Conversa -->
-        <section class="secao-companheiro">
+        <section class="secao-companheiro" id="secao-conversa">
             <div class="secao-header">
                 <h2>Conversa</h2>
                 <p>Como o seu companheiro/parente socializou com você?</p>
@@ -368,7 +369,7 @@
         </section>
 
                 <!-- Seção Comportamentos -->
-        <section class="secao-companheiro">
+        <section class="secao-companheiro" id="secao-comportamentos">
             <div class="secao-header">
                 <h2>Comportamentos</h2>
                 <p>Como o seu companheiro/parente agiu com você?</p>
@@ -444,7 +445,7 @@
         </section>
 
                 <!-- Seção Socialização -->
-        <section class="secao-companheiro">
+        <section class="secao-companheiro" id="secao-socializacao">
             <div class="secao-header">
                 <h2>Socialização</h2>
                 <p>Como o seu companheiro/parente agiu com outras pessoas?</p>

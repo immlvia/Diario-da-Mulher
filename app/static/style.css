@@ -393,9 +393,9 @@ body#page-diario-body {
     margin: 0 auto 18px auto;
     background: transparent !important;
     border: none !important;
-    border-radius: 18px;
+    border-radius:  50%;
     margin-bottom: -80px;
-    box-shadow: 0 4px 24px 0 rgba(107, 79, 170, 0.13), 0 1.5px 8px 0 rgba(107, 79, 170, 0.08);
+    box-shadow: 0 4px 24px 0 rgba(95, 65, 165, 0.13), 0 1.5px 8px 0 rgba(107, 79, 170, 0.08);
 }
 
 .intro-banner-2 {
@@ -404,9 +404,9 @@ body#page-diario-body {
     margin: 0 auto 18px auto;
     background: transparent !important;
     border: none !important;
-    border-radius: 18px;
+    border-radius: 40px;
     margin-bottom: -80px;
-    box-shadow: 0 4px 24px 0 rgba(107, 79, 170, 0.13), 0 1.5px 8px 0 rgba(107, 79, 170, 0.08);
+    box-shadow: 0 4px 24px 0 rgba(95, 65, 165, 0.13), 0 1.5px 8px 0 rgba(107, 79, 170, 0.08);
 }
 
 .diario-header {
@@ -546,9 +546,12 @@ body#page-diario-body {
 #secao-emocoes .botao-emocao { border-color: #F8D36E; }
 #secao-mente .botao-card { border-color: #F4A8C6; }
 #secao-sociabilidade .botao-card { border-color: #FAD9A1; }
-#secao-lazer .botao-selecao { border-color: #A9DEF9; }
-#secao-sintomas .botao-selecao { border-color: #C3E6CB; }
-#secao-companheiro .botao-selecao { border-color: #D7BDE2; }
+#secao-lazer .botao-selecao { border-color:  #C3E6CB; }
+#secao-sintomas .botao-selecao { border-color: #A9DEF9; }
+#secao-conversa .botao-selecao { border-color: #e99de5; }
+#secao-comportamentos .botao-selecao { border-color: #d36565 ; }
+#secao-socializacao .botao-selecao { border-color: #d36565  ; }
+
 
 
 /* --- Estilo para o estado "Selecionado" --- */
@@ -561,9 +564,11 @@ body#page-diario-body {
 #secao-emocoes .selecionado { border-color: #F9A602 !important; }
 #secao-mente .selecionado { border-color: #EC6090 !important; }
 #secao-sociabilidade .selecionado { border-color: #F2A641 !important; }
-#secao-lazer .selecionado { border-color: #48B4E9 !important; }
-#secao-sintomas .selecionado { border-color: #62B878 !important; }
-#secao-companheiro .selecionado { border-color: #A569BD !important; }
+#secao-lazer .selecionado { border-color: #62B878 !important; }
+#secao-sintomas .selecionado { border-color: #48B4E9 !important; }
+#secao-conversa .selecionado { border-color: #A569BD !important; }
+#secao-comportamentos .selecionado { border-color: #d83b3b !important; }
+#secao-socializacao .selecionado { border-color: #d83b3b !important; }
 
 /* Estilos para checkboxes personalizados */
 .botao-emocao input[type="checkbox"],
@@ -613,20 +618,27 @@ body#page-diario-body {
 }
 
 #secao-lazer .botao-selecao:has(input:checked) {
-    border-color: #48B4E9 !important;
-    background-color: rgba(72, 180, 233, 0.1);
+    border-color:  #62B878 !important;
+    background-color: rgba(72, 233, 85, 0.1);
 }
 
 #secao-sintomas .botao-selecao:has(input:checked) {
-    border-color: #62B878 !important;
-    background-color: rgba(98, 184, 120, 0.1);
+    border-color: #48B4E9 !important;
+    background-color: rgba(93, 173, 219, 0.1);
 }
 
-#secao-companheiro .botao-selecao:has(input:checked) {
+#secao-conversa .botao-selecao:has(input:checked) {
     border-color: #A569BD !important;
     background-color: rgba(165, 105, 189, 0.1);
 }
-
+#secao-comportamentos .botao-selecao:has(input:checked) {
+    border-color: #d83b3b !important;
+    background-color: rgba(202, 82, 82, 0.1);
+}
+#secao-socializacao .botao-selecao:has(input:checked) {
+    border-color: #d83b3b !important;
+    background-color: rgba(202, 82, 82, 0.1);
+}
 
 /* Efeito de pulso quando selecionado */
 @keyframes pulse-selected {
