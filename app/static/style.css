@@ -383,7 +383,7 @@ body#page-diario-body {
 
 .page-diario {
     max-width: 1300px;
-    margin: 40px auto;
+    margin: 20px auto;
     padding: 20px;
 }
 
@@ -418,9 +418,9 @@ body#page-diario-body {
     border-radius: 18px;
     box-shadow: 0 4px 18px rgba(145, 136, 174, 0.13);
     padding: 18px 28px 18px 28px;
-    margin-bottom: 32px;
+    margin-bottom: 20px;
     position: relative;
-    max-width: 520px;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -434,25 +434,6 @@ body#page-diario-body {
     margin: 0;
     font-family: 'Quicksand', Arial, sans-serif;
     letter-spacing: 0.01em;
-}
-
-.btn-fechar, .btn-calendario {
-    background: none;
-    border: none;
-    font-size: 1.7rem;
-    color: #6b4faa;
-    border-radius: 50%;
-    transition: background 0.18s, box-shadow 0.18s;
-    padding: 0.3em 0.7em;
-    box-shadow: 0 1.5px 8px 0 rgba(107, 79, 170, 0.08);
-    cursor: pointer;
-    outline: none;
-}
-
-.btn-fechar:hover, .btn-calendario:hover {
-    background: #844697;
-    color: #fff;
-    box-shadow: 0 4px 18px rgba(244, 168, 198, 0.18);
 }
 
 .secao-registro, .secao-companheiro {
@@ -469,14 +450,6 @@ body#page-diario-body {
     display: flex;
     align-items: center;
     margin-bottom: 25px;
-}
-
-.secao-header img {
-    width: 250px;
-    height: auto;
-    position: absolute;
-    top: -117px;
-    left: 0px;
 }
 
 .secao-header h2, .secao-header h3 {
