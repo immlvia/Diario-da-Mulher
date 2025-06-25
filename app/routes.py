@@ -134,8 +134,9 @@ def editar_conta():
         flash("Dados atualizados com sucesso!", "success")
         return redirect(url_for("meuperfil"))
 
-    # Preenche o campo com o e-mail atual
+    # Pré-preenche no GET
     if request.method == "GET":
+        form.nome.data  = current_user.nome
         form.email.data = current_user.email
 
     return render_template("editar_conta.html", form=form)
