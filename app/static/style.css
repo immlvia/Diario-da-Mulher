@@ -267,8 +267,8 @@ h2{
 
 /*Formatações ciclo*/
 .container.ciclo-container {
-    max-width: 1000px;
-    margin: 40px auto;
+    max-width: 1500px;
+    margin: 20px auto;
     padding: 0 20px;
     width: 100%;
     box-sizing: border-box;
@@ -276,7 +276,6 @@ h2{
     flex-direction: column;
     background-color: #ffffff;
     border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
 .ciclo-header {
@@ -289,7 +288,6 @@ h2{
     margin-bottom: 30px;
     position: relative; 
     background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
     box-sizing: border-box; 
 }
 
@@ -330,14 +328,14 @@ h2{
 }
 
 .circular-progress-container {
-    width: 200px;
-    height: 200px;
+    width: 280px;
+    height: 280px;
     margin: 2rem auto;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, #ffffff, #ede7f6);
+    background: transparent;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
 }
@@ -351,7 +349,6 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.08);
     position: relative;
 }
 
@@ -360,7 +357,6 @@ h2{
     font-weight: 600;
     color: #4a148c;
     position: absolute;
-    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.1);
 }
 
 #situacaoText {
