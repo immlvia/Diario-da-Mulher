@@ -9,9 +9,9 @@
         <button class="btn-calendario">🗓</button>
     </div>
     
-    <div class="intro-banner">
-        <img src="{{ url_for('static', filename='imagens/10.png') }}" alt="Ilustração de uma mulher pensativa" class="mulher-banner-img">
-    </div>
+        <div class="intro-banner">
+            <img src="{{ url_for('static', filename='imagens/10.png') }}" alt="Ilustração de uma mulher pensativa" class="mulher-banner-img">
+        </div>
 
     <form id="registroDiarioForm" method="POST" action="{{ url_for('salvar_diario') }}">
         <!-- Seção Emoções -->
@@ -293,15 +293,15 @@
         </section>
 
         <!-- Seção Companheiro -->
-    <div class="intro-banner-2">
-        <img src="{{ url_for('static', filename='imagens/28.png') }}" alt="Ícone de companheiro" class="companheiro-banner-img">
-    </div>
+        <div class="intro-banner-2">
+            <img src="{{ url_for('static', filename='imagens/28.png') }}" alt="Ícone de companheiro" class="companheiro-banner-img">
+        </div>
                 
-                <!-- Subseção Conversa -->
+                <!-- Seção Conversa -->
         <section class="secao-companheiro">
             <div class="secao-header">
-                    <h2>Conversa</h2>
-                    <p>Como o seu companheiro/parente socializou com você?</p>
+                <h2>Conversa</h2>
+                <p>Como o seu companheiro/parente socializou com você?</p>
             </div>
             <div class="container-botoes">
                 <label class="botao-selecao">
@@ -327,178 +327,178 @@
                     <img src="{{ url_for('static', filename='imagens/44.jpg') }}" alt="Ícone de Piadas Ofensivas" class="imagem-botao">
                     <span>Piadas Ofensivas</span>
                     <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="conversa" value="mentiras">
-                            <img src="{{ url_for('static', filename='imagens/45.jpg') }}" alt="Ícone de Mentiras" class="imagem-botao">
-                            <span>Mentiras</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="conversa" value="dar-gelo">
-                            <img src="{{ url_for('static', filename='imagens/46.jpg') }}" alt="Ícone de Dar um Gelo" class="imagem-botao">
-                            <span>Dar um Gelo</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="conversa" value="ciumes">
-                            <img src="{{ url_for('static', filename='imagens/47.jpg') }}" alt="Ícone de Ciúmes" class="imagem-botao">
-                            <span>Ciumar/Ciúmes</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="conversa" value="culpar">
-                            <img src="{{ url_for('static', filename='imagens/48.jpg') }}" alt="Ícone de Culpar" class="imagem-botao">
-                            <span>Culpar</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="conversa" value="proibir">
-                            <img src="{{ url_for('static', filename='imagens/49.jpg') }}" alt="Ícone de Proibir" class="imagem-botao">
-                            <span>Proibir</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="conversa" value="chantagear">
-                            <img src="{{ url_for('static', filename='imagens/50.jpg') }}" alt="Ícone de Chantagear" class="imagem-botao">
-                            <span>Chantagear</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                    </div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="conversa" value="mentiras">
+                    <img src="{{ url_for('static', filename='imagens/45.jpg') }}" alt="Ícone de Mentiras" class="imagem-botao">
+                    <span>Mentiras</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="conversa" value="dar-gelo">
+                    <img src="{{ url_for('static', filename='imagens/46.jpg') }}" alt="Ícone de Dar um Gelo" class="imagem-botao">
+                    <span>Dar um Gelo</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="conversa" value="ciumes">
+                    <img src="{{ url_for('static', filename='imagens/47.jpg') }}" alt="Ícone de Ciúmes" class="imagem-botao">
+                    <span>Ciumar/Ciúmes</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="conversa" value="culpar">
+                    <img src="{{ url_for('static', filename='imagens/48.jpg') }}" alt="Ícone de Culpar" class="imagem-botao">
+                    <span>Culpar</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="conversa" value="proibir">
+                    <img src="{{ url_for('static', filename='imagens/49.jpg') }}" alt="Ícone de Proibir" class="imagem-botao">
+                    <span>Proibir</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="conversa" value="chantagear">
+                    <img src="{{ url_for('static', filename='imagens/50.jpg') }}" alt="Ícone de Chantagear" class="imagem-botao">
+                    <span>Chantagear</span>
+                    <div class="checkmark">✓</div>
+                </label>
+            </div>
         </section>
 
-                <!-- Subseção Comportamentos -->
+                <!-- Seção Comportamentos -->
         <section class="secao-companheiro">
-                    <div class="secao-header">
-                        <h2>Comportamentos</h2>
-                        <p>Como o seu companheiro/parente agiu com você?</p>
-                    </div>
-                    <div class="container-botoes">
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="comportamentos" value="empurrar">
-                            <img src="{{ url_for('static', filename='imagens/51.jpg') }}" alt="Ícone de Empurrar" class="imagem-botao">
-                            <span>Empurrar</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="comportamentos" value="beliscar-arranhar">
-                            <img src="{{ url_for('static', filename='imagens/52.jpg') }}" alt="Ícone de Beliscar/Arranhar" class="imagem-botao">
-                            <span>Beliscar/Arranhar</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="comportamentos" value="chutar">
-                            <img src="{{ url_for('static', filename='imagens/53.jpg') }}" alt="Ícone de Chutar" class="imagem-botao">
-                            <span>Chutar</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="comportamentos" value="apertar">
-                            <img src="{{ url_for('static', filename='imagens/54.jpg') }}" alt="Ícone de Apertar" class="imagem-botao">
-                            <span>Apertar</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="comportamentos" value="bater">
-                            <img src="{{ url_for('static', filename='imagens/55.jpg') }}" alt="Ícone de Bater" class="imagem-botao">
-                            <span>Bater</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="comportamentos" value="destruir-bens">
-                            <img src="{{ url_for('static', filename='imagens/56.jpg') }}" alt="Ícone de Destruir Bens" class="imagem-botao">
-                            <span>Destruir Bens</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="comportamentos" value="brincar-bater">
-                            <img src="{{ url_for('static', filename='imagens/57.jpg') }}" alt="Ícone de Brincar de Bater" class="imagem-botao">
-                            <span>Brincar de Bater</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="comportamentos" value="obrigou_relacao_sexual">
-                            <img src="{{ url_for('static', filename='imagens/58.jpg') }}" alt="Ícone de Obrigou a ter relações" class="imagem-botao">
-                            <span>Obrigou a ter relações</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="comportamentos" value="abuso-sexual">
-                            <img src="{{ url_for('static', filename='imagens/59.jpg') }}" alt="Ícone de Abuso Sexual" class="imagem-botao">
-                            <span>Abuso Sexual</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="comportamentos" value="confinar-prender">
-                            <img src="{{ url_for('static', filename='imagens/60.jpg') }}" alt="Ícone de Confinar/Prender" class="imagem-botao">
-                            <span>Confinar/Prender</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="comportamentos" value="sufocar-estrangular">
-                            <img src="{{ url_for('static', filename='imagens/61.jpg') }}" alt="Ícone de Sufocar/Estrangular" class="imagem-botao">
-                            <span>Sufocar/Estrangular</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                    </div>
+            <div class="secao-header">
+                <h2>Comportamentos</h2>
+                <p>Como o seu companheiro/parente agiu com você?</p>
+            </div>
+            <div class="container-botoes">
+                <label class="botao-selecao">
+                    <input type="checkbox" name="comportamentos" value="empurrar">
+                    <img src="{{ url_for('static', filename='imagens/51.jpg') }}" alt="Ícone de Empurrar" class="imagem-botao">
+                    <span>Empurrar</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="comportamentos" value="beliscar-arranhar">
+                    <img src="{{ url_for('static', filename='imagens/52.jpg') }}" alt="Ícone de Beliscar/Arranhar" class="imagem-botao">
+                    <span>Beliscar/Arranhar</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="comportamentos" value="chutar">
+                    <img src="{{ url_for('static', filename='imagens/53.jpg') }}" alt="Ícone de Chutar" class="imagem-botao">
+                    <span>Chutar</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="comportamentos" value="apertar">
+                    <img src="{{ url_for('static', filename='imagens/54.jpg') }}" alt="Ícone de Apertar" class="imagem-botao">
+                    <span>Apertar</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="comportamentos" value="bater">
+                    <img src="{{ url_for('static', filename='imagens/55.jpg') }}" alt="Ícone de Bater" class="imagem-botao">
+                    <span>Bater</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="comportamentos" value="destruir-bens">
+                    <img src="{{ url_for('static', filename='imagens/56.jpg') }}" alt="Ícone de Destruir Bens" class="imagem-botao">
+                    <span>Destruir Bens</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="comportamentos" value="brincar-bater">
+                    <img src="{{ url_for('static', filename='imagens/57.jpg') }}" alt="Ícone de Brincar de Bater" class="imagem-botao">
+                    <span>Brincar de Bater</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="comportamentos" value="obrigou_relacao_sexual">
+                    <img src="{{ url_for('static', filename='imagens/58.jpg') }}" alt="Ícone de Obrigou a ter relações" class="imagem-botao">
+                    <span>Obrigou a ter relações</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="comportamentos" value="abuso-sexual">
+                    <img src="{{ url_for('static', filename='imagens/59.jpg') }}" alt="Ícone de Abuso Sexual" class="imagem-botao">
+                    <span>Abuso Sexual</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="comportamentos" value="confinar-prender">
+                    <img src="{{ url_for('static', filename='imagens/60.jpg') }}" alt="Ícone de Confinar/Prender" class="imagem-botao">
+                    <span>Confinar/Prender</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="comportamentos" value="sufocar-estrangular">
+                    <img src="{{ url_for('static', filename='imagens/61.jpg') }}" alt="Ícone de Sufocar/Estrangular" class="imagem-botao">
+                    <span>Sufocar/Estrangular</span>
+                    <div class="checkmark">✓</div>
+                </label>
+            </div>
         </section>
 
-                <!-- Subseção Socialização -->
+                <!-- Seção Socialização -->
         <section class="secao-companheiro">
-                    <div class="secao-header">
-                        <h2>Socialização</h2>
-                        <p>Como o seu companheiro/parente agiu com outras pessoas?</p>
-                    </div>
-                    <div class="container-botoes">
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="socializacao" value="matou-feriu-animal">
-                            <img src="{{ url_for('static', filename='imagens/62.jpg') }}" alt="Ícone de Matou/Feriu animal" class="imagem-botao">
-                            <span>Matou/Feriu animal</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="socializacao" value="tentou-se-matou">
-                            <img src="{{ url_for('static', filename='imagens/63.jpg') }}" alt="Ícone de Tentou se matar" class="imagem-botao">
-                            <span>Tentou se matar</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="socializacao" value="empurrar-outros">
-                            <img src="{{ url_for('static', filename='imagens/51.jpg') }}" alt="Ícone de Empurrar" class="imagem-botao">
-                            <span>Empurrar</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="socializacao" value="beliscar-arranhar-outros">
-                            <img src="{{ url_for('static', filename='imagens/52.jpg') }}" alt="Ícone de Beliscar/Arranhar" class="imagem-botao">
-                            <span>Beliscar/Arranhar</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="socializacao" value="chutar-outros">
-                            <img src="{{ url_for('static', filename='imagens/53.jpg') }}" alt="Ícone de Chutar" class="imagem-botao">
-                            <span>Chutar</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="socializacao" value="bater-outros">
-                            <img src="{{ url_for('static', filename='imagens/55.jpg') }}" alt="Ícone de Bater" class="imagem-botao">
-                            <span>Bater</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="socializacao" value="ameacar">
-                            <img src="{{ url_for('static', filename='imagens/64.jpg') }}" alt="Ícone de Ameaçar" class="imagem-botao">
-                            <span>Ameaçar</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                        <label class="botao-selecao">
-                            <input type="checkbox" name="socializacao" value="apertar-outros">
-                            <img src="{{ url_for('static', filename='imagens/54.jpg') }}" alt="Ícone de Apertar" class="imagem-botao">
-                            <span>Apertar</span>
-                            <div class="checkmark">✓</div>
-                        </label>
-                    </div>
+            <div class="secao-header">
+                <h2>Socialização</h2>
+                <p>Como o seu companheiro/parente agiu com outras pessoas?</p>
+            </div>
+            <div class="container-botoes">
+                <label class="botao-selecao">
+                    <input type="checkbox" name="socializacao" value="matou-feriu-animal">
+                    <img src="{{ url_for('static', filename='imagens/62.jpg') }}" alt="Ícone de Matou/Feriu animal" class="imagem-botao">
+                    <span>Matou/Feriu animal</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="socializacao" value="tentou-se-matou">
+                    <img src="{{ url_for('static', filename='imagens/63.jpg') }}" alt="Ícone de Tentou se matar" class="imagem-botao">
+                    <span>Tentou se matar</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="socializacao" value="empurrar-outros">
+                    <img src="{{ url_for('static', filename='imagens/51.jpg') }}" alt="Ícone de Empurrar" class="imagem-botao">
+                    <span>Empurrar</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="socializacao" value="beliscar-arranhar-outros">
+                    <img src="{{ url_for('static', filename='imagens/52.jpg') }}" alt="Ícone de Beliscar/Arranhar" class="imagem-botao">
+                    <span>Beliscar/Arranhar</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="socializacao" value="chutar-outros">
+                    <img src="{{ url_for('static', filename='imagens/53.jpg') }}" alt="Ícone de Chutar" class="imagem-botao">
+                    <span>Chutar</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="socializacao" value="bater-outros">
+                    <img src="{{ url_for('static', filename='imagens/55.jpg') }}" alt="Ícone de Bater" class="imagem-botao">
+                    <span>Bater</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="socializacao" value="ameacar">
+                    <img src="{{ url_for('static', filename='imagens/64.jpg') }}" alt="Ícone de Ameaçar" class="imagem-botao">
+                    <span>Ameaçar</span>
+                    <div class="checkmark">✓</div>
+                </label>
+                <label class="botao-selecao">
+                    <input type="checkbox" name="socializacao" value="apertar-outros">
+                    <img src="{{ url_for('static', filename='imagens/54.jpg') }}" alt="Ícone de Apertar" class="imagem-botao">
+                    <span>Apertar</span>
+                    <div class="checkmark">✓</div>
+                </label>
+            </div>
         </section>
         
         <button type="submit">Enviar</button>
