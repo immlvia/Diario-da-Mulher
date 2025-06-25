@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="icon" href="data:," type="image/x-icon">
 </head>
 
 <body>
@@ -23,7 +24,18 @@
         <div class="row right-login col-md-6">
             <form class="card-login p-4 rounded shadow" method="POST" action="/login">
                 <h1 class="mb-4">Faça login no Diário da Mulher</h2>
-
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% if messages %}
+                    <div class="flash-messages mb-3">
+                      {% for category, message in messages %}
+                        <div class="alert alert-{{ 'danger' if category == 'error' else 'success' }} alert-dismissible fade show">
+                          {{ message }}
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                {% endwith %}
                     {{ form.csrf_token }}
 
                     <div class="mb-3">

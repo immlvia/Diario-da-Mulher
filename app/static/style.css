@@ -685,3 +685,25 @@ body#page-diario-body {
     background-color: #524a5c;
     transform: translateY(0);
 }
+
+/* Remove todos os pseudo-elementos de botões */
+.btn::after, .btn::before {
+    content: none !important;
+}
+
+/* Estilização consistente */
+.btn {
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+/* Estilos específicos */
+.btn-primary {
+    background-color: #6a5f82;
+    border-color: #6a5f82;
+}
+
+.btn-primary:hover {
+    background-color: #524a5c;
+    border-color: #524a5c;
+}

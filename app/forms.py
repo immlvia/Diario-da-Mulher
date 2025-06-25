@@ -35,14 +35,12 @@ class LoginForm(FlaskForm):
 
     def login(self):
         usuario = Usuario.query.filter_by(email=self.email.data).first()
-        if usuario:
-            if bcrypt.check_password_hash(usuario.senha, self.senha.data.encode('utf-8')):
-                return usuario
-            else:
-                raise Exception('Senha incorreta.')
-        else:
-            raise Exception('Usuário não cadastrado.')
-
+        if usuario is None:
+            return None, "email_incorreto"
+        if not bcrypt.check_password_hash(usuario.senha, self.senha.data.encode('utf-8')):
+            return None, "senha_incorreta"
+        return usuario, "sucesso"
+        
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, ValidationError
