@@ -1,3 +1,4 @@
+from app.diario_service import obter_estatisticas_diario
 from app.models import Diario
 
 

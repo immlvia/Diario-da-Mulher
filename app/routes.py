@@ -1,13 +1,14 @@
 from app import app, db
 from flask import render_template, request, redirect, url_for, flash
 import sqlite3
-from app.models import Usuario
+from app.models import Usuario, Diario
 from app.forms import UsuarioForm, LoginForm
 from flask_login import login_user, logout_user, current_user, login_required
 from app.utils import formatar_data_atual
 from app.diario_service import registrar_diario
 from app.ciclo_service import calcular_dados_ciclo
-
+from datetime import date
+from sqlalchemy import func
 
 def conectar_db():
     conectar = sqlite3.connect()
@@ -95,14 +96,19 @@ def calendario():
 @app.route('/salvar-diario', methods=['POST'])
 @login_required
 def salvar_diario():
+    hoje = date.today()
     try:
-        # Registrar a entrada do diário usando o serviço
+        # #Função para que so possa ter 1 registro por dia:
+        # diario_de_hoje = Diario.query.filter(
+        #    Diario.usuario_id == current_user.id,
+        #    func.date(Diario.data) == hoje
+        # ).first()
+        # if diario_de_hoje:
+        # #ADICIONAR MENSAGEM PARA DIZER QUE JA TEVE UM REGISTRO NO DIARIO
+        #    return redirect(url_for('homepage'))
+        
         registrar_diario(current_user.id, request.form)
-        
-        # Mensagem de sucesso
         flash('Seu diário foi registrado com sucesso!', 'success')
-        
-        # Redirecionamento para a página do diário
         return redirect(url_for("diario"))
     
     except Exception as e:
@@ -111,7 +117,6 @@ def salvar_diario():
         app.logger.error(f"Erro ao salvar diário: {e}")
         flash('Ocorreu um erro ao salvar seu diário. Por favor, tente novamente.', 'error')
         return redirect(url_for('diario'))
-
 
 
 from app.forms import EditarContaForm
