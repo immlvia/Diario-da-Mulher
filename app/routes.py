@@ -5,8 +5,13 @@ from app.models import Usuario
 from app.forms import UsuarioForm, LoginForm
 from flask_login import login_user, logout_user, current_user, login_required
 from app.utils import formatar_data_atual
-from app.diario_service import registrar_diario
+from app.diario_service import registrar_diario, obter_historico_diario, mapeamento_campos
 from app.ciclo_service import calcular_dados_ciclo
+from app.calendario_service import opcoes_legiveis, categorias_legiveis
+from wtforms.validators import ValidationError
+from app.forms import EditarContaForm
+from datetime import date
+from sqlalchemy import func
 
 
 def conectar_db():
@@ -26,17 +31,16 @@ def cadastro():
             return redirect(url_for('login'))
         except ValidationError as e:
             flash(str(e), 'error')
-    return render_template("cadastro.html", context=context, form=form)
-
+    return render_template("cadastro.html", form=form)
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm()
-    
+
     if form.validate_on_submit():
         usuario, status = form.login()
-        
+
         if status == "email_incorreto":
             flash("Email não cadastrado no sistema", "error")
             return redirect(url_for('login'))
@@ -57,7 +61,6 @@ def logout():
     return render_template("login.html", form=form)
 
 
-
 @app.route("/")
 def homepage():
     if current_user.is_authenticated:
@@ -67,16 +70,14 @@ def homepage():
         return render_template("login.html", form=form)
 
 
-
 @app.route('/meuperfil')
 def meuperfil():
     return render_template('meuperfil.html')
 
-#@app.route("/<int:id>")
-#def meuperfil(id):
+# @app.route("/<int:id>")
+# def meuperfil(id):
 #    obj = Usuario.query.get(id)
 #    return render_template("meuperfil.html", obj=obj)
-
 
 
 @app.route("/diario", methods=["GET"])
@@ -85,9 +86,8 @@ def diario():
     return render_template("diario.html", data_atual=data_atual)
 
 
-
 @app.route('/ciclo')
-@login_required 
+@login_required
 def ciclo():
     # Chama A função de serviço para obter a porcentagem
     porcentagem_ciclo = calcular_dados_ciclo(current_user.id)
@@ -96,11 +96,11 @@ def ciclo():
     return render_template('ciclo.html', porcentagem=porcentagem_ciclo)
 
 
-
 @app.route('/calendario')
 def calendario():
-    return render_template('calendario.html')
-
+    usuario_id = current_user.id
+    entradas = obter_historico_diario(usuario_id)
+    return render_template("calendario.html", entradas=entradas, mapeamento_campos=mapeamento_campos, opcoes_legiveis=opcoes_legiveis, categorias_legiveis=categorias_legiveis)
 
 
 @app.route('/salvar-diario', methods=['POST'])
@@ -109,13 +109,13 @@ def salvar_diario():
     try:
         # Registrar a entrada do diário usando o serviço
         registrar_diario(current_user.id, request.form)
-        
+
         # Mensagem de sucesso
         flash('Seu diário foi registrado com sucesso!', 'success')
-        
+
         # Redirecionamento para a página do diário
         return redirect(url_for("diario"))
-    
+
     except Exception as e:
         # Tratar erros
         db.session.rollback()
@@ -123,9 +123,6 @@ def salvar_diario():
         flash('Ocorreu um erro ao salvar seu diário. Por favor, tente novamente.', 'error')
         return redirect(url_for('diario'))
 
-
-
-from app.forms import EditarContaForm
 
 @app.route("/editar-conta", methods=["GET", "POST"])
 @login_required
@@ -139,9 +136,7 @@ def editar_conta():
 
     # Pré-preenche no GET
     if request.method == "GET":
-        form.nome.data  = current_user.nome
+        form.nome.data = current_user.nome
         form.email.data = current_user.email
 
     return render_template("editar_conta.html", form=form)
-
-        

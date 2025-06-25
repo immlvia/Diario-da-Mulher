@@ -1,5 +1,59 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<div class="container main-calendario mt-4">
+    <div class="row d-flex">
+        <div class="col-12">
+            <h1 class="mb-2">Calendário</h1>
+            <h2 class="mb-4">Nesse espaço você terá acesso ao histórico dos seus registros no diário da mulher.</h2>
 
-{% endblock %}
+            {% for entrada in entradas %}
+            <div class="dia-registro mb-2">
+                <button class="btn btn-data" onclick="alternar('detalhes-{{ loop.index }}')" style="font-weight: bold;">
+                    {{ entrada.data.strftime('%d/%m/%Y') }}
+                </button>
+
+                <div id="detalhes-{{ loop.index }}" style="display: none; margin-top: 1rem; margin-bottom: 4rem;">
+                    <table class="calendario-tab" border-separate:separate; cellpadding="24" style="width: 100%;">
+                        <tr>
+                            <th>Categoria</th>
+                            <th>Itens Marcados</th>
+                        </tr>
+
+                        {% for categoria, campos in mapeamento_campos.items() %}
+                        <tr>
+                            <td>{{ categorias_legiveis.get(categoria, categoria.capitalize()) }}</td>
+                            <td>
+                                {% set marcados = [] %}
+                                {% for nome_exibicao, nome_interno in campos.items() %}
+                                {% if entrada[nome_interno] %}
+                                {% set texto_legivel = opcoes_legiveis.get(nome_interno, nome_exibicao.replace('-', '
+                                ').capitalize()) %}
+                                {% set _ = marcados.append(texto_legivel) %}
+                                {% endif %}
+                                {% endfor %}
+                                {{ marcados | join(', ') if marcados else '-' }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+
+                </div>
+            </div>
+            {% endfor %}
+
+            <script>
+                function alternar(id) {
+                    var elem = document.getElementById(id);
+                    if (elem.style.display === "none") {
+                        elem.style.display = "block";
+                    } else {
+                        elem.style.display = "none";
+                    }
+                }
+            </script>
+
+            {% endblock %}
+        </div>
+    </div>
+</div>
