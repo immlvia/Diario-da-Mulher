@@ -93,8 +93,12 @@ h2{
     margin: 0;
 }
 
-.btn {
-  border-radius: 18px;
+.btn{
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-transform: none;
+    letter-spacing: normal;
 }
 
 /*Formatações footer*/
@@ -178,7 +182,7 @@ h2{
     border-color: #9188AE;
 }
 
-.entrar-btn:hover, .cadastro-btn:hover, .enviar-btn:hover {
+.entrar-btn:hover, .cadastro-btn:hover, .enviar-btn:hover{
     background-color: #6a5f82;
     border-color: #6a5f82;
 }
@@ -293,7 +297,6 @@ h2{
 .calendario-tab td:first-child, .calendario-tab th:first-child {
     font-weight: bold;
     text-align: center;
-
 }
 
 .btn-data{
@@ -305,31 +308,32 @@ h2{
 }
 
 /*Formatações ciclo*/
-.container.ciclo-container {
+.main-ciclo, .main-calendario{
+    padding: 3rem;
     max-width: 1500px;
-    margin: 20px auto;
-    padding: 0 20px;
+    margin: 1rem auto;
     width: 100%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    background-color: #ffffff;
+    background-color: white;
     border-radius: 16px;
 }
 
-.ciclo-header {
+.titulo-ciclo, .titulo-calendario{
     display: flex;
     justify-content: center; 
     align-items: center;
     width: 100%; 
-    padding: 15px 20px; 
+    padding-bottom: 1.5rem; 
     border-bottom: 1px solid #eee; 
-    margin-bottom: 30px;
     position: relative; 
     background-color: #fff;
-    box-sizing: border-box; 
+    box-sizing: border-box;
+    color: #6a5f82;
+    text-align: center;
 }
-
+/*
 .ciclo-header h1 {
     font-size: 24px;
     font-weight: 700;
@@ -359,7 +363,7 @@ h2{
     color: #6a1b9a;
     outline: none;
 }
-
+*/
 .indicador-violencia {
     text-align: center;
     padding: 30px 20px;
@@ -383,8 +387,7 @@ h2{
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: radial-gradient(circle at center, #ffffff 60%, transparent 60%),
-                conic-gradient(#7e57c2 0%, #d1c4e9 100%);
+    background: radial-gradient(circle at center, #ffffff 60%, transparent 60%), conic-gradient(#7e57c2 0%, #d1c4e9 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -417,8 +420,11 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
+    justify-content: center;
+    height: 100vh;
     min-height: 100vh;
     background-color: #F8F9FA;
+
 }
 
 .perfil-card {
@@ -427,7 +433,9 @@ h2{
     box-shadow: 0 4px 24px rgba(107, 79, 170, 0.13), 0 1.5px 8px rgba(107, 79, 170, 0.08);
     padding: 2rem;
     width: 100%;
-    max-width: 420px;
+    width: 420px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .perfil-card h1 {
@@ -525,7 +533,7 @@ body#page-editar-conta-body {
     display: block;
 }
 
-.btn.btn-primary {
+.btn-salvar {
     background-color: #9188AE;
     border-color: #9188AE;
     font-weight: 500;
@@ -536,10 +544,17 @@ body#page-editar-conta-body {
     margin: 2rem auto 0 auto;
 }
 
-.btn.btn-primary:hover {
+.btn-salvar:hover {
     background-color: #6a5f82;
     border-color: #6a5f82;
 }
+
+.btn-salvar:active{
+    background-color: #524a5c !important;
+    border-color: #524a5c !important;
+}
+
+*/
 .form-group { margin-bottom: 1.2rem; }
 
 
@@ -613,10 +628,12 @@ body#page-diario-body {
     margin-top: 140px;  
 }
 
+
 .secao-header {
     display: flex;
     align-items: center;
     margin-bottom: 25px;
+
 }
 
 .secao-header h2, .secao-header h3 {
@@ -857,18 +874,18 @@ body#page-diario-body {
     transform: translateY(0);
 }
 
-/* Remove todos os pseudo-elementos de botões */
+/* Remove todos os pseudo-elementos de botões
 .btn::after, .btn::before {
     content: none !important;
 }
 
-/* Estilização consistente */
+/* Estilização consistente
 .btn {
     text-transform: none;
     letter-spacing: normal;
 }
 
-/* Estilos específicos */
+/* Estilos específicos
 .btn-primary {
     background-color: #6a5f82;
     border-color: #6a5f82;
@@ -878,3 +895,4 @@ body#page-diario-body {
     background-color: #524a5c;
     border-color: #524a5c;
 }
+*/

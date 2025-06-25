@@ -49,7 +49,7 @@ def login():
             return redirect(url_for('login'))
         else:
             login_user(usuario, remember=True)
-            flash('Login realizado com sucesso!', 'success')
+            #flash('Login realizado com sucesso!', 'success')
             return redirect(url_for('homepage'))
     return render_template("login.html", form=form)
 

@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="container main-calendario mt-4">
+<div class="container main-calendario">
     <div class="row d-flex">
         <div class="col-12">
-            <h1 class="mb-2">Calendário</h1>
-            <h2 class="mb-4">Nesse espaço você terá acesso ao histórico dos seus registros no diário da mulher.</h2>
+            <div class="titulo-calendario text-center mb-4">
+                <h1 class="mb-2">Calendário</h1>
+            </div>
+        <div class="row mb-4">
+            <h2 cclass="text-center">Nesse espaço você terá acesso ao histórico dos seus registros no diário.</h2>
+        </div>
+            
 
             {% for entrada in entradas %}
             <div class="dia-registro mb-2">
