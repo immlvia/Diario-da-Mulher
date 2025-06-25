@@ -1,4 +1,3 @@
-/*Formatações gerais*/
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
 *{
@@ -81,7 +80,6 @@ footer{
   display: flex;
   justify-content: center;
   z-index: 1000;
-
 }
 
 h1{ 
@@ -99,7 +97,7 @@ h2{
   border-radius: 18px;
 }
 
-/*Formataçõe footer*/
+/*Formatações footer*/
 
 .footer-btn {
   padding: 0.6rem 1.5rem;
@@ -253,7 +251,6 @@ h2{
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     text-align: center;
-
 }
 
 .botao-diario:hover {
@@ -266,124 +263,20 @@ h2{
     background-color: #524a5c !important;
     transform: scale(0.97);
     color: white;
-    transform: scale(0.96);
 }
 
-/*Formatações ciclo
-
-/* Reset básico */
-/*
-body {
-    margin: 0;
-    padding: 0;
-    color: #333;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-    */
-
-/* Container principal */
+/*Formatações ciclo*/
 .container.ciclo-container {
-     width: 95%;
-    max-width: none;
-    margin: 20px auto;
+    max-width: 1000px;
+    margin: 40px auto;
     padding: 0 20px;
+    width: 100%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-}
-
-.ciclo-container .row {
-    margin-bottom: 0.25rem !important; 
-}
-
-
-/* Cabeçalho */
-/*
-.ciclo-header h1 { 
-    font-size: 22px; 
-    font-weight: 600; 
-    color: #333; 
-    margin: 0;
-    text-align: center; 
-}
-*/
-.circular-progress-container {
-    width: 180px;
-    height: 180px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 20px;
-    border-bottom: 1px solid #e0e0e0;
-    position: relative;
-    background: transparent;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-}
-
-.ciclo-header h1 {
-    font-family: "Quicksand", sans-serif; 
-    font-size: 28px;
-    font-weight: 600;                  
-    color: #4a148c;                        
-    margin: 0;
-    text-align: center;
-    padding: 10px 0;                    
-    letter-spacing: normal;             
-    text-shadow: none;                  
-}
-
-
-
-.ciclo-header .btn-fechar:hover,
-.ciclo-header .btn-fechar:focus {
-    color: #6a1b9a;
-    outline: none;
-}
-
-/* Indicador de violência */
-.indicador-violencia {
-    text-align: center;
-    padding: 30px 20px;
-    font-size: 1.1rem;
-}
-
-/* Círculo de progresso */
-.circular-progress-container {
-    width: 300px;  
-    height: 300px; 
-    margin: 2rem auto;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.circular-progress {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: radial-gradient(circle at center, #ffffff 60%, transparent 60%),
-                conic-gradient(#7e57c2 0%, #d1c4e9 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.circular-progress .progress-value {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #4a148c;
-    position: absolute;
-
 }
 
 .ciclo-header {
@@ -400,6 +293,13 @@ body {
     box-sizing: border-box; 
 }
 
+.ciclo-header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #4a148c;
+    margin: 0;
+    text-align: center;
+}
 
 .ciclo-header .btn-fechar {
     position: absolute; 
@@ -409,22 +309,65 @@ body {
     background: none;
     border: none;
     font-size: 1.8em; 
-    color: #000000; 
+    color: #4a148c; 
     cursor: pointer;
     padding: 0;
     line-height: 1;
     z-index: 10;
+    transition: color 0.3s ease;
 }
 
-/* Situação */
+.ciclo-header .btn-fechar:hover,
+.ciclo-header .btn-fechar:focus {
+    color: #6a1b9a;
+    outline: none;
+}
+
+.indicador-violencia {
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 1.1rem;
+}
+
+.circular-progress-container {
+    width: 200px;
+    height: 200px;
+    margin: 2rem auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #ffffff, #ede7f6);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.circular-progress {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #ffffff 60%, transparent 60%),
+                conic-gradient(#7e57c2 0%, #d1c4e9 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+
+.circular-progress .progress-value {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #4a148c;
+    position: absolute;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
 #situacaoText {
     font-weight: 500;
-    color: #555;
-    margin-top: 1.5rem;
-      margin-top: 1rem;
-    font-size: 1.1rem;
-    font-weight: 500;
     color: #5a5a5a;
+    margin-top: 1rem;
+    font-size: 1.1rem;
     background-color: #f8f6fc;
     padding: 10px 15px;
     border-left: 4px solid #6b4faa;
@@ -433,103 +376,86 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Responsivo */
-@media (max-width: 600px) {
-    .circular-progress-container {
-        width: 140px;
-        height: 140px;
-    }
-
-    .ciclo-header h1 {
-        font-size: 20px;
-    }
-
-    .circular-progress .progress-value {
-        font-size: 1.2rem;
-    }
-
-    .ciclo-header .btn-fechar {
-        font-size: 1.5em;
-    }
-}
-/*
-usar no footer
-*/
-
-
 /*Diario*/
 body#page-diario-body {
-    background-color: #F8F9FA; /* Um cinza muito, muito claro */
+    background-color: #F8F9FA;
 }
 
-/* Container principal para centrar o conteúdo */
-#page-diario {
-    max-width: 1500px;
-    margin: 40px auto; 
-    padding: 20px;
-}
-
-/* Cabeçalho do Diário */
-.diario-header {
-    display: flex;
-    flex-direction: row; 
-    justify-content: space-between; 
-    align-items: center;
-    margin-bottom: 30px;
-    padding: 0 10px;
-}
-
-.diario-header h1 {
-    font-size: 22px;
-    font-weight: 600;
-    color: #333;
-    margin: 0;
-    text-align: center;
-}
-
-.btn-fechar, .btn-calendario {
-    background: none;
-    border: none;
-    font-size: 28px; 
-    cursor: pointer;
-    color: #555;
-}
-
-/* --- Estilos das Secções de Registro --- */
 .page-diario {
     max-width: 1300px;
     margin: 40px auto;
     padding: 20px;
 }
 
-/* Cabeçalho do Diário */
+.intro-banner {
+    width: 400px;
+    height: auto;
+    margin: 0 auto 18px auto;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 18px;
+    margin-bottom: -80px;
+    box-shadow: 0 4px 24px 0 rgba(107, 79, 170, 0.13), 0 1.5px 8px 0 rgba(107, 79, 170, 0.08);
+}
+
+.intro-banner-2 {
+    width: 400px;
+    height: auto;
+    margin: 0 auto 18px auto;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 18px;
+    margin-bottom: -80px;
+    box-shadow: 0 4px 24px 0 rgba(107, 79, 170, 0.13), 0 1.5px 8px 0 rgba(107, 79, 170, 0.08);
+}
+
 .diario-header {
     display: flex;
-    flex-direction: row; 
-    justify-content: space-between; 
     align-items: center;
-    margin-bottom: 30px;
-    padding: 0 10px;
+    justify-content: center;
+    gap: 18px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(145, 136, 174, 0.13);
+    padding: 18px 28px 18px 28px;
+    margin-bottom: 32px;
+    position: relative;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .diario-header h1 {
-    font-size: 22px;
-    font-weight: 600;
-    color: #333;
-    margin: 0;
+    flex: 1;
     text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #6b4faa;
+    margin: 0;
+    font-family: 'Quicksand', Arial, sans-serif;
+    letter-spacing: 0.01em;
 }
 
 .btn-fechar, .btn-calendario {
     background: none;
     border: none;
-    font-size: 28px; 
+    font-size: 1.7rem;
+    color: #6b4faa;
+    border-radius: 50%;
+    transition: background 0.18s, box-shadow 0.18s;
+    padding: 0.3em 0.7em;
+    box-shadow: 0 1.5px 8px 0 rgba(107, 79, 170, 0.08);
     cursor: pointer;
-    color: #555;
+    outline: none;
 }
 
-/* --- Estilos das Secções de Registro --- */
-.secao-registro {
+.btn-fechar:hover, .btn-calendario:hover {
+    background: #844697;
+    color: #fff;
+    box-shadow: 0 4px 18px rgba(244, 168, 198, 0.18);
+}
+
+.secao-registro, .secao-companheiro {
     background-color: #ffffff;
     border-radius: 16px;
     padding: 25px;
@@ -546,11 +472,11 @@ body#page-diario-body {
 }
 
 .secao-header img {
-    width: 250px;  
-    height: auto;  
-    position: absolute; 
-    top: -117px;        
-    left: 0px;        
+    width: 250px;
+    height: auto;
+    position: absolute;
+    top: -117px;
+    left: 0px;
 }
 
 .secao-header h2, .secao-header h3 {
@@ -566,6 +492,13 @@ body#page-diario-body {
     margin: 0 0 0 10px; 
 }
 
+.secao-header + div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 18px; 
+}
+
 
 /* --- Estilo dos Botões de Seleção --- */
 .botao-emocao,
@@ -575,7 +508,6 @@ body#page-diario-body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #ffffff;
     border: 1.5px solid #e0e0e0;
     border-radius: 18px;
     padding: 15px 10px;
@@ -611,14 +543,6 @@ body#page-diario-body {
     line-height: 1.3;
 }
 
-.secao-header + div {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 18px; 
-}
-
-
 #secao-emocoes .botao-emocao { border-color: #F8D36E; }
 #secao-mente .botao-card { border-color: #F4A8C6; }
 #secao-sociabilidade .botao-card { border-color: #FAD9A1; }
@@ -649,107 +573,60 @@ body#page-diario-body {
 }
 
 /* Efeito visual quando checkbox está marcado*/
-.botao-emocao input[type="checkbox"]:checked,
-.botao-card input[type="checkbox"]:checked,
-.botao-selecao input[type="checkbox"]:checked {
-    background-color: rgba(145, 136, 174, 0.15);
+.botao-emocao:has(input:checked),
+.botao-card:has(input:checked),
+.botao-selecao:has(input:checked) {
+    background-color: rgba(145, 136, 174, 0.1);
     border-color: #9188AE !important;
     transform: scale(1.05);
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(145, 136, 174, 0.3);
 }
 
-/* Estilo para checkboxes quando marcados*/
-.botao-emocao input[type="checkbox"]:checked + img + span,
-.botao-card input[type="checkbox"]:checked + img + span,
-.botao-selecao input[type="checkbox"]:checked + img + span {
+.botao-emocao:has(input:checked) span,
+.botao-card:has(input:checked) span,
+.botao-selecao:has(input:checked) span {
     color: #333;
     font-weight: 700;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Efeito visual para o label quando checkbox está marcado */
-.botao-emocao input[type="checkbox"]:checked ~ *,
-.botao-card input[type="checkbox"]:checked ~ *,
-.botao-selecao input[type="checkbox"]:checked ~ * {
+.botao-emocao:has(input:checked) .imagem-emocao,
+.botao-card:has(input:checked) .imagem-botao,
+.botao-selecao:has(input:checked) .imagem-botao {
     filter: brightness(1.1);
 }
 
-/* Hover effect para checkboxes */
-.botao-emocao:hover,
-.botao-card:hover,
-.botao-selecao:hover {
-    cursor: pointer;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-}
-
-/* Estilo específico para checkboxes de emoções quando marcados */
-#secao-emocoes .botao-emocao input[type="checkbox"]:checked {
+#secao-emocoes .botao-emocao:has(input:checked) {
     border-color: #F9A602 !important;
-    background-color: rgba(249, 166, 2, 0.2);
-    box-shadow: 0 4px 12px rgba(249, 166, 2, 0.4);
+    background-color: rgba(249, 166, 2, 0.1);
 }
 
-#secao-emocoes .botao-emocao input[type="checkbox"]:checked + img {
-    filter: drop-shadow(0 2px 4px rgba(249, 166, 2, 0.3));
-}
-
-/* Estilo específico para checkboxes de mente quando marcados */
-.botao-card input[type="checkbox"]:checked {
+#secao-mente .botao-card:has(input:checked) {
     border-color: #EC6090 !important;
-    background-color: rgba(236, 96, 144, 0.2);
-    box-shadow: 0 4px 12px rgba(236, 96, 144, 0.4);
+    background-color: rgba(236, 96, 144, 0.1);
 }
 
-.botao-card input[type="checkbox"]:checked + img {
-    filter: drop-shadow(0 2px 4px rgba(236, 96, 144, 0.3));
-}
-
-/* Estilo específico para checkboxes de sociabilidade quando marcados*/
-.botao-card input[type="checkbox"]:checked {
+#secao-sociabilidade .botao-card:has(input:checked) {
     border-color: #F2A641 !important;
-    background-color: rgba(242, 166, 65, 0.2);
-    box-shadow: 0 4px 12px rgba(242, 166, 65, 0.4);
+    background-color: rgba(242, 166, 65, 0.1);
 }
 
-.botao-card input[type="checkbox"]:checked + img {
-    filter: drop-shadow(0 2px 4px rgba(242, 166, 65, 0.3));
-}
-
-/* Estilo específico para checkboxes de lazer quando marcados*/
-.botao-selecao input[type="checkbox"]:checked {
+#secao-lazer .botao-selecao:has(input:checked) {
     border-color: #48B4E9 !important;
-    background-color: rgba(72, 180, 233, 0.2);
-    box-shadow: 0 4px 12px rgba(72, 180, 233, 0.4);
+    background-color: rgba(72, 180, 233, 0.1);
 }
 
-.botao-selecao input[type="checkbox"]:checked + img {
-    filter: drop-shadow(0 2px 4px rgba(72, 180, 233, 0.3));
-}
-
-/* Estilo específico para checkboxes de sintomas quando marcados */
-.botao-selecao input[type="checkbox"]:checked {
+#secao-sintomas .botao-selecao:has(input:checked) {
     border-color: #62B878 !important;
-    background-color: rgba(98, 184, 120, 0.2);
-    box-shadow: 0 4px 12px rgba(98, 184, 120, 0.4);
+    background-color: rgba(98, 184, 120, 0.1);
 }
 
-.botao-selecao input[type="checkbox"]:checked + img {
-    filter: drop-shadow(0 2px 4px rgba(98, 184, 120, 0.3));
-}
-
-/* Estilo específico para checkboxes de companheiro quando marcados*/
-#secao-companheiro .botao-selecao input[type="checkbox"]:checked {
+#secao-companheiro .botao-selecao:has(input:checked) {
     border-color: #A569BD !important;
-    background-color: rgba(165, 105, 189, 0.2);
-    box-shadow: 0 4px 12px rgba(165, 105, 189, 0.4);
+    background-color: rgba(165, 105, 189, 0.1);
 }
 
-#secao-companheiro .botao-selecao input[type="checkbox"]:checked + img {
-    filter: drop-shadow(0 2px 4px rgba(165, 105, 189, 0.3));
-}
 
 /* Efeito de pulso quando selecionado */
 @keyframes pulse-selected {
@@ -758,84 +635,10 @@ body#page-diario-body {
     100% { transform: scale(1.05); }
 }
 
-.botao-emocao input[type="checkbox"]:checked,
-.botao-card input[type="checkbox"]:checked,
-.botao-selecao input[type="checkbox"]:checked {
+.botao-emocao:has(input:checked),
+.botao-card:has(input:checked),
+.botao-selecao:has(input:checked) {
     animation: pulse-selected 0.6s ease-in-out;
-}
-
-/* Indicador visual adicional - borda interna */
-.botao-emocao input[type="checkbox"]:checked::before,
-.botao-card input[type="checkbox"]:checked::before,
-.botao-selecao input[type="checkbox"]:checked::before {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    right: 2px;
-    bottom: 2px;
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
-    pointer-events: none;
-}
-
-/* Efeito de brilho quando selecionado */
-.botao-emocao input[type="checkbox"]:checked + img,
-.botao-card input[type="checkbox"]:checked + img,
-.botao-selecao input[type="checkbox"]:checked + img {
-    animation: glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-    from { filter: brightness(1) drop-shadow(0 0 2px currentColor); }
-    to { filter: brightness(1.2) drop-shadow(0 0 8px currentColor); }
-}
-
-/* Melhorias na responsividade para checkboxes */
-@media (max-width: 768px) {
-    .botao-emocao,
-    .botao-card,
-    .botao-selecao {
-        min-height: 60px;
-        padding: 8px;
-    }
-    
-    .botao-emocao input[type="checkbox"]:checked,
-    .botao-card input[type="checkbox"]:checked,
-    .botao-selecao input[type="checkbox"]:checked {
-        transform: scale(1.03);
-    }
-    
-    .botao-emocao input[type="checkbox"]:checked + img,
-    .botao-card input[type="checkbox"]:checked + img,
-    .botao-selecao input[type="checkbox"]:checked + img {
-        animation: none; /* Remove animação em mobile para melhor performance */
-    }
-    
-    .botao-emocao input[type="checkbox"]:checked ~ .checkmark,
-    .botao-card input[type="checkbox"]:checked ~ .checkmark,
-    .botao-selecao input[type="checkbox"]:checked ~ .checkmark {
-        width: 16px;
-        height: 16px;
-        font-size: 10px;
-        right: 2px;
-        bottom: 2px;
-    }
-}
-
-/* Animação suave para transições */
-.botao-emocao,
-.botao-card,
-.botao-selecao {
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-/* Efeito de destaque para o texto quando selecionado */
-.botao-emocao,
-.botao-card,
-.botao-selecao {
-    position: relative;
 }
 
 .checkmark {
@@ -856,9 +659,9 @@ body#page-diario-body {
     z-index: 10;
 }
 
-.botao-emocao input[type="checkbox"]:checked ~ .checkmark,
-.botao-card input[type="checkbox"]:checked ~ .checkmark,
-.botao-selecao input[type="checkbox"]:checked ~ .checkmark {
+.botao-emocao:has(input:checked) .checkmark,
+.botao-card:has(input:checked) .checkmark,
+.botao-selecao:has(input:checked) .checkmark {
     display: flex;
     align-items: center;
     justify-content: center;
