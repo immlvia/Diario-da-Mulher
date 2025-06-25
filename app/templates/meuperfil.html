@@ -1,27 +1,18 @@
 {% extends 'base.html' %}
+
+{% block body_id %}page-perfil-body{% endblock %}
+
 {% block content %}
+<div class="page-perfil">
+    <div class="perfil-card">
+        <h1>Meu Perfil</h1>
 
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-12">
-            <h1>Meu Perfil</h1>
-
-            <table class="table mt-4">
-                <tbody>
-                    <tr>
-                        <th>Nome:</th>
-                        <td>{{ current_user.nome }}</td>
-                    </tr>
-                    <tr>
-                        <th>Email:</th>
-                        <td>{{ current_user.email }}</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <a href="{{ url_for('editar_conta') }}" class="btn btn-outline-primary">Editar Email e Senha</a>
+        <div class="perfil-info">
+            <p><strong>🙋 Nome:</strong> {{ current_user.nome }}</p>
+            <p><strong>📩 Email:</strong> {{ current_user.email }}</p>
         </div>
+
+        <a href="{{ url_for('editar_conta') }}" class="btn-editar">Editar</a>
     </div>
 </div>
-
 {% endblock %}
