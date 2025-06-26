@@ -51,7 +51,12 @@ pip install -r requirements.txt
 
 5. **Configure o banco de dados**
 
+Primeiro, apague o banco de dados "databe.db" e a pasta "migrations".
+Em seguida, escreva no terminal:
+
 ```bash
+flask db init
+flask db migrate
 flask db upgrade
 ```
 
