@@ -16,7 +16,7 @@ def calcular_dados_ciclo(usuario_id):
 
     total_de_entradas = len(entradas_diario)
     media_pontos = soma_total_pontos / total_de_entradas
-    porcentagem = (media_pontos / 160.0) * 100
+    porcentagem = (media_pontos / 200.0) * 100
 
     #PORCENTAGEM NÃO PASSAR DE 100 NEM SER NEGATIVO
     if porcentagem > 100:

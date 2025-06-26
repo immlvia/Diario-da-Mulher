@@ -3,7 +3,7 @@ from app.models import Diario
 from datetime import datetime
 
 mapeamento_campos = {
-    # Emoções
+    #EMOÇÕES
     'emocoes': {
         'feliz': 'feliz',
         'triste': 'triste',
@@ -15,7 +15,7 @@ mapeamento_campos = {
         'falta-controle': 'falta_controle',
         'indiferenca': 'indiferenca'
     },
-    # Mente
+    #MENTE
     'mente': {
         'mente-confusa': 'mente_confusa',
         'calma': 'calma',
@@ -25,7 +25,7 @@ mapeamento_campos = {
         'bom-rendimento': 'bom_rendimento',
         'preguica-desanimo': 'preguica_desanimo'
     },
-    # Sociabilidade
+    #SOCIABILIDADE
     'sociabilidade': {
         'sociavel': 'sociavel',
         'introvertida': 'introvertida',
@@ -33,7 +33,7 @@ mapeamento_campos = {
         'amorosa': 'amorosa',
         'conflituosa': 'conflituosa'
     },
-    # Lazer
+    #LAZER
     'lazer': {
         'ferias': 'ferias',
         'encontro': 'encontros',
@@ -41,7 +41,7 @@ mapeamento_campos = {
         'alcool': 'alcool',
         'cigarro': 'cigarro'
     },
-    # Sintomas físicos
+    #SINTOMAS FÍSICOS
     'sintomas': {
         'dor-cabeca': 'dor_cabeca',
         'tensao-corporal': 'tensao_corporal',
@@ -56,7 +56,7 @@ mapeamento_campos = {
         'alteracoes-hormonais': 'alteracao_hormonal',
         'problema-digestivo': 'problemas_digestivos'
     },
-    # Ações do parceiro - conversa e comportamentos
+    #AÇÕES DO PARCEIRO
     'conversa': {
         'piadas-ofensivas': 'piadas_ofensivas',
         'chantagear': 'chantagem',
@@ -101,17 +101,15 @@ mapeamento_campos = {
 def registrar_diario(usuario_id, dados_form):
     """
     Registra uma nova entrada no diário com base nos dados do formulário
-
     Args:
         usuario_id: ID do usuário atual
         dados_form: Dados do formulário do diário
-
     Returns:
         Objeto Diario salvo
     """
     dia_de_hoje = Diario(usuario_id=usuario_id)
 
-    # Processamento dos campos do formulário
+    #PROCESSAMENTO DOS CAMPOS DO FÓRMULARIO
     for categoria, campos in mapeamento_campos.items():
         valores_selecionados = dados_form.getlist(categoria)
         for valor in valores_selecionados:
@@ -121,6 +119,7 @@ def registrar_diario(usuario_id, dados_form):
                 print(
                     f"Aviso: Valor '{valor}' na categoria '{categoria}' não encontrado no mapeamento")
         
+    #AJUSTE DE "PRESENTES" E "PALAVRAS CARINHOSAS"    
     pontuacao_base_dia = dia_de_hoje.calcular_pontuacao()
     pontuacao_final_dia = pontuacao_base_dia
     historico_diario = Diario.query.filter_by(usuario_id=usuario_id).all()
@@ -130,20 +129,20 @@ def registrar_diario(usuario_id, dados_form):
         total_historico = len(historico_diario)
         media_historico = soma_historico / total_historico if total_historico > 0 else 0
         
-        limite_alerta = 80 #
+        limite_alerta = 80
 
         if media_historico >= limite_alerta:
             if dia_de_hoje.palavras_carinho:
-                pontuacao_final_dia += 10 # Ajusta de -5 para +5
+                pontuacao_final_dia += 10
             if dia_de_hoje.presentes:
-                pontuacao_final_dia += 10 # Ajusta de -5 para +5
+                pontuacao_final_dia += 10
 
     dia_de_hoje.pontuacao_total = pontuacao_final_dia
 
-    # Cálculo da pontuação
+    #CÁLCULO DA PONTUAÇÃO
     dia_de_hoje.pontuacao_total = dia_de_hoje.calcular_pontuacao()
 
-    # Salva no banco de dados
+    # SALVA PONTUAÇÃO NO BANCO DE DADOS
     db.session.add(dia_de_hoje)
     db.session.commit()
 
@@ -153,10 +152,8 @@ def registrar_diario(usuario_id, dados_form):
 def obter_historico_diario(usuario_id):
     """
     Obtém o histórico do diário de um usuário
-
     Args:
         usuario_id: ID do usuário
-
     Returns:
         Lista de entradas do diário ordenadas por data
     """
@@ -166,10 +163,8 @@ def obter_historico_diario(usuario_id):
 def obter_estatisticas_diario(usuario_id):
     """
     Calcula estatísticas do diário de um usuário
-
     Args:
         usuario_id: ID do usuário
-
     Returns:
         Dicionário com estatísticas
     """
@@ -191,20 +186,20 @@ def obter_estatisticas_diario(usuario_id):
     for entrada in entradas:
         total_pontos += entrada.pontuacao_total if entrada.pontuacao_total else 0
 
-        # Contagem de emoções
+        #CONTAGEM DE EMOÇÃO
         for emocao in ['feliz', 'triste', 'alteracao_humor', 'sensivel', 'raiva',
                        'irritavel', 'ansiosa', 'falta_controle', 'indiferenca']:
             if getattr(entrada, emocao):
                 emocoes[emocao] = emocoes.get(emocao, 0) + 1
 
-        # Contagem de sintomas
+        #CONTAGEM DE SINTOMA
         for sintoma in ['dor_cabeca', 'tensao_corporal', 'dor_corporal', 'insonia',
                         'queda_cabelo', 'taquicardia', 'surto_acne', 'sem_apetite',
                         'alergia_dermatite', 'gripe', 'alteracao_hormonal', 'problemas_digestivos']:
             if getattr(entrada, sintoma):
                 sintomas[sintoma] = sintomas.get(sintoma, 0) + 1
 
-    # Ordenar por frequência
+    #ORDENAR POR FREQUÊNCIA
     emocoes_ordenadas = sorted(
         emocoes.items(), key=lambda x: x[1], reverse=True)
     sintomas_ordenados = sorted(
