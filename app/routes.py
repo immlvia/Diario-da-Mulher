@@ -1,6 +1,5 @@
 from app import app, db
 from flask import render_template, request, redirect, url_for, flash
-import sqlite3
 from app.models import Usuario, Diario
 from app.forms import UsuarioForm, LoginForm
 from flask_login import login_user, logout_user, current_user, login_required
@@ -13,10 +12,6 @@ from app.forms import EditarContaForm
 from datetime import date
 from sqlalchemy import func
 
-
-def conectar_db():
-    conectar = sqlite3.connect()
-    return conectar
 
 
 @app.route("/cadastro", methods=["GET", "POST"])
@@ -49,7 +44,6 @@ def login():
             return redirect(url_for('login'))
         else:
             login_user(usuario, remember=True)
-            #flash('Login realizado com sucesso!', 'success')
             return redirect(url_for('homepage'))
     return render_template("login.html", form=form)
 
@@ -74,11 +68,6 @@ def homepage():
 def meuperfil():
     return render_template('meuperfil.html')
 
-# @app.route("/<int:id>")
-# def meuperfil(id):
-#    obj = Usuario.query.get(id)
-#    return render_template("meuperfil.html", obj=obj)
-
 
 @app.route("/diario", methods=["GET"])
 def diario():
@@ -89,10 +78,10 @@ def diario():
 @app.route('/ciclo')
 @login_required
 def ciclo():
-    # Chama A função de serviço para obter a porcentagem
+    #Chama a função pra obter a porcentagem
     porcentagem_ciclo = calcular_dados_ciclo(current_user.id)
 
-    # Envia a porcentagem para o template HTML
+    #Envia a porcentagem pro HTML
     return render_template('ciclo.html', porcentagem=porcentagem_ciclo)
 
 
@@ -108,14 +97,13 @@ def calendario():
 def salvar_diario():
     hoje = date.today()
     try:
-        #Função para que so possa ter 1 registro por dia:
+        #Bloco para que so possa ter 1 registro por dia. Para mudar, comente ate a linha 107
         diario_de_hoje = Diario.query.filter(
            Diario.usuario_id == current_user.id,
            func.date(Diario.data) == hoje
         ).first()
         if diario_de_hoje:
            flash("Você ja realizou um registro hoje, faça um novo amanhã", 'error')
-        #ADICIONAR MENSAGEM PARA DIZER QUE JA TEVE UM REGISTRO NO DIARIO
            return redirect(url_for('diario'))
         
         registrar_diario(current_user.id, request.form)
@@ -123,7 +111,7 @@ def salvar_diario():
         return redirect(url_for("diario"))
     
     except Exception as e:
-        # Tratar erros
+        #Tratar erros
         db.session.rollback()
         app.logger.error(f"Erro ao salvar diário: {e}")
         flash('Ocorreu um erro ao salvar seu diário. Por favor, tente novamente.', 'error')

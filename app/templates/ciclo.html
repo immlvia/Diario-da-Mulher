@@ -22,28 +22,22 @@
     </section>
 </div>
 
-<!-- <script src="{{ url_for('static', filename='ciclo.js') }}"></script> -->
+
 
 <script>
-    // Este evento garante que o código só vai rodar depois que a página inteira carregar.
+
     document.addEventListener('DOMContentLoaded', () => {
         
-        // AQUI A MÁGICA ACONTECE:
-        // O Python/Flask substitui a parte "{{ porcentagem | tojson }}" pelo número que calculamos.
-        // O navegador vai ler, por exemplo: const porcentagem = 45;
         const porcentagem = {{ porcentagem | tojson }};
 
-        // Agora o JavaScript "sabe" qual é a variável e pode usá-la.
         const progressCircle = document.querySelector('.circular-progress');
         const progressValue = document.querySelector('.progress-value');
         const situacaoText = document.getElementById('situacaoText');
 
-        // Mostra o valor da porcentagem no meio do círculo
         if (progressValue) {
             progressValue.textContent = `${porcentagem}%`;
         }
 
-        // Desenha a parte colorida do círculo de acordo com a porcentagem
         if (progressCircle) {
             progressCircle.style.background = `
                 radial-gradient(circle at center, #f5f0f8 60%, transparent 60%),
@@ -51,7 +45,6 @@
             `;
         }
 
-        // Atualiza a mensagem de texto com base na porcentagem
         if (situacaoText) {
             if (porcentagem === 0) {
                 situacaoText.textContent = "Ainda não há dados para analisar a situação.";

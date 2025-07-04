@@ -48,14 +48,8 @@ class LoginForm(FlaskForm):
             return None, "senha_incorreta"
         return usuario, "sucesso"
         
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import DataRequired, Email, ValidationError
-from app import db, bcrypt
-from app.models import Usuario
-
 class EditarContaForm(FlaskForm):
-    nome = StringField("Nome", validators=[DataRequired()])  # ⬅️ ESTE CAMPO É NECESSÁRIO
+    nome = StringField("Nome", validators=[DataRequired()])
     email = StringField("Novo Email", validators=[DataRequired(), Email()])
     senha_atual = PasswordField("Senha Atual", validators=[DataRequired()])
     nova_senha = PasswordField("Nova Senha", validators=[DataRequired()])
@@ -79,8 +73,7 @@ class EditarContaForm(FlaskForm):
         self.usuario_atual.email = self.email.data
         self.usuario_atual.senha = bcrypt.generate_password_hash(self.nova_senha.data.encode('utf-8'))
         db.session.commit()
-        from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import DataRequired, Email, ValidationError
+        
 
 
 

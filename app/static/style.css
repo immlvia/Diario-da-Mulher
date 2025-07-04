@@ -333,37 +333,7 @@ h2{
     color: #6a5f82;
     text-align: center;
 }
-/*
-.ciclo-header h1 {
-    font-size: 24px;
-    font-weight: 700;
-    color: #4a148c;
-    margin: 0;
-    text-align: center;
-}
 
-.ciclo-header .btn-fechar {
-    position: absolute; 
-    left: 20px; 
-    top: 50%; 
-    transform: translateY(-50%); 
-    background: none;
-    border: none;
-    font-size: 1.8em; 
-    color: #4a148c; 
-    cursor: pointer;
-    padding: 0;
-    line-height: 1;
-    z-index: 10;
-    transition: color 0.3s ease;
-}
-
-.ciclo-header .btn-fechar:hover,
-.ciclo-header .btn-fechar:focus {
-    color: #6a1b9a;
-    outline: none;
-}
-*/
 .indicador-violencia {
     text-align: center;
     padding: 30px 20px;
@@ -873,26 +843,3 @@ body#page-diario-body {
     background-color: #524a5c;
     transform: translateY(0);
 }
-
-/* Remove todos os pseudo-elementos de botões
-.btn::after, .btn::before {
-    content: none !important;
-}
-
-/* Estilização consistente
-.btn {
-    text-transform: none;
-    letter-spacing: normal;
-}
-
-/* Estilos específicos
-.btn-primary {
-    background-color: #6a5f82;
-    border-color: #6a5f82;
-}
-
-.btn-primary:hover {
-    background-color: #524a5c;
-    border-color: #524a5c;
-}
-*/

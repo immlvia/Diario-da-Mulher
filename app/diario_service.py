@@ -119,9 +119,9 @@ def registrar_diario(usuario_id, dados_form):
                 print(
                     f"Aviso: Valor '{valor}' na categoria '{categoria}' não encontrado no mapeamento")
         
+    dia_de_hoje.calcular_pontuacao()
+
     #AJUSTE DE "PRESENTES" E "PALAVRAS CARINHOSAS"    
-    pontuacao_base_dia = dia_de_hoje.calcular_pontuacao()
-    pontuacao_final_dia = pontuacao_base_dia
     historico_diario = Diario.query.filter_by(usuario_id=usuario_id).all()
 
     if historico_diario:
@@ -133,16 +133,12 @@ def registrar_diario(usuario_id, dados_form):
 
         if media_historico >= limite_alerta:
             if dia_de_hoje.palavras_carinho:
-                pontuacao_final_dia += 10
+                dia_de_hoje.pontuacao_total += 10
             if dia_de_hoje.presentes:
-                pontuacao_final_dia += 10
+                dia_de_hoje.pontuacao_total += 10
 
-    dia_de_hoje.pontuacao_total = pontuacao_final_dia
 
-    #CÁLCULO DA PONTUAÇÃO
-    dia_de_hoje.pontuacao_total = dia_de_hoje.calcular_pontuacao()
-
-    # SALVA PONTUAÇÃO NO BANCO DE DADOS
+    #SALVA PONTUAÇÃO NO BANCO DE DADOS
     db.session.add(dia_de_hoje)
     db.session.commit()
 
@@ -158,58 +154,3 @@ def obter_historico_diario(usuario_id):
         Lista de entradas do diário ordenadas por data
     """
     return Diario.query.filter_by(usuario_id=usuario_id).order_by(Diario.data.desc()).all()
-
-
-def obter_estatisticas_diario(usuario_id):
-    """
-    Calcula estatísticas do diário de um usuário
-    Args:
-        usuario_id: ID do usuário
-    Returns:
-        Dicionário com estatísticas
-    """
-    entradas = obter_historico_diario(usuario_id)
-
-    if not entradas:
-        return {
-            'total_entradas': 0,
-            'media_pontuacao': 0,
-            'emocoes_comuns': [],
-            'sintomas_comuns': []
-        }
-
-    # Contadores
-    emocoes = {}
-    sintomas = {}
-    total_pontos = 0
-
-    for entrada in entradas:
-        total_pontos += entrada.pontuacao_total if entrada.pontuacao_total else 0
-
-        #CONTAGEM DE EMOÇÃO
-        for emocao in ['feliz', 'triste', 'alteracao_humor', 'sensivel', 'raiva',
-                       'irritavel', 'ansiosa', 'falta_controle', 'indiferenca']:
-            if getattr(entrada, emocao):
-                emocoes[emocao] = emocoes.get(emocao, 0) + 1
-
-        #CONTAGEM DE SINTOMA
-        for sintoma in ['dor_cabeca', 'tensao_corporal', 'dor_corporal', 'insonia',
-                        'queda_cabelo', 'taquicardia', 'surto_acne', 'sem_apetite',
-                        'alergia_dermatite', 'gripe', 'alteracao_hormonal', 'problemas_digestivos']:
-            if getattr(entrada, sintoma):
-                sintomas[sintoma] = sintomas.get(sintoma, 0) + 1
-
-    #ORDENAR POR FREQUÊNCIA
-    emocoes_ordenadas = sorted(
-        emocoes.items(), key=lambda x: x[1], reverse=True)
-    sintomas_ordenados = sorted(
-        sintomas.items(), key=lambda x: x[1], reverse=True)
-
-    return {
-        'total_entradas': len(entradas),
-        'media_pontuacao': total_pontos / len(entradas) if entradas else 0,
-        'emocoes_comuns': [{'nome': nome.replace('_', ' ').title(), 'contagem': contagem}
-                           for nome, contagem in emocoes_ordenadas[:5]],
-        'sintomas_comuns': [{'nome': nome.replace('_', ' ').title(), 'contagem': contagem}
-                            for nome, contagem in sintomas_ordenados[:5]]
-    }
