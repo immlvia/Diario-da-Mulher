@@ -1,6 +1,5 @@
 from app import db
 from app.models import Diario
-from datetime import datetime
 
 mapeamento_campos = {
     #EMOÇÕES

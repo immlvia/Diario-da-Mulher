@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, ValidationError
-
 from app import db, bcrypt
 from app.models import Usuario
 from sqlalchemy.exc import IntegrityError
